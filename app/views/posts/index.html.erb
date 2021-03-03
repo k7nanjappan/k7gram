@@ -1,0 +1,112 @@
+<!-- rails' form for helper writes HTML code for us! Here, on pressing submit button, routes will send the request to posts controller which will see what needs to be done ahead -->
+
+
+<!-- STYLING THE POST FORM -->
+
+<div class="d-flex flex-column align-items-center mt-3">
+	<div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+		<div class="card">
+			<div class="card-header">
+				Create Post
+			</div>
+			<div class="card-body">
+				<%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
+					<div class="form-group row mt-2">
+						<div class="col-auto pr-0">
+							<%= image_tag avatar_url(current_user), class: "post-author-icon" %>
+						</div>
+						<div class="col pl-0">
+							<%= f.text_field :content, class: "form-control border-0", placeholder: "Say something about this..." %>
+						</div>
+					</div>
+
+		<div class="fallback">
+			<%= file_field_tag "images[]", type: :file, multiple: true %>
+		</div>
+		<div class="dz-message m-0"></div>
+			<div class="dropzone-previews mb-3">
+				<div class="upload-photos-icon">
+					<i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #dddfe2"></i>
+				</div>
+			</div>
+		<%= f.submit "Post", class: "btn btn-primary" %>
+	<% end %>
+</div>
+		</div>
+
+
+
+<% @posts.each do |post| %>
+
+    <div class="card mt-3 post">
+      <div class="card-header d-flex align-items-center">
+        <%= link_to user_path(post.user), class: "no-text-decoration" do %>
+          <%= image_tag avatar_url(post.user), class: "post-author-icon" %>
+        <% end %>
+        <%= link_to user_path(post.user), class: "normal-color no-text-decoration",
+            title: post.user.name do%>
+        <strong><%= post.user.name %></strong>
+        <% end %>
+        <% if post.is_belongs_to? current_user %>
+          <%= link_to post_path(post), method: :delete, class: "ml-auto delete-post-icon mx-0 my-auto" do %>
+            <i class="far fa-trash-alt" aria-hidden="true"></i>
+        <% end %>
+        <% end %>
+      </div>
+
+      <% if post.photos.size == 1 %>
+          <%= image_tag post.photos.first.image.url(:standard), class: "card-img-top" %>
+      <% else %>
+        <div class="carousel slide" data-ride="carousel" id="carousel-post-<%= post.id %>">
+          <div class="carousel-inner">
+            <% post.photos.each do |photo| %>
+              <% if photo == post.photos.first %>
+                <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
+              <% end %>
+                <%= image_tag photo.image.url(:standard), class: "card-img-top" %>
+              </div>
+            <% end %>
+          </div>
+
+          <a class="carousel-control-prev"  href="#carousel-post-<%= post.id %>"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </a>
+          <a class="carousel-control-next"  href="#carousel-post-<%= post.id %> "  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </a>
+        </div>
+
+        <% end %>
+
+      <div class="card-body">
+        <div class="row actions">
+          <a href="#" class="core-sprite love hide-text">Love </a>
+          <a href="#" class="core-sprite comment hide-text">Comment </a>
+          <a href="#" class="core-sprite bookmark hide-text ml-auto">Bookmark</a>
+        </div>
+        <div><strong><%= pluralize(16,"like") %></strong></div>
+        <div>
+          <span><strong><%= post.user.name %></strong></span>
+          <span><%= post.content %></span>
+        </div>
+        <div class="light-color post-time">
+          <%= time_ago_in_words(post.created_at).upcase %> AGO
+        </div>
+        <hr>
+        <div class="row actions">
+          <form class="w-100" action="#">
+            <div>
+              <textarea class="form-control comment-input border-0" placeholder="Add a comment.." rows="1"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+<% end %>

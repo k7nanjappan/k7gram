@@ -1,0 +1,7 @@
+<!-- if the post is already bookmarked, it will act as a destroy button. On clicking this link, bookmark will be deleted -->
+<% if is_bookmarked.present? %>
+	<%= link_to "Bookmarked", bookmark_path(is_bookmarked), method: :delete, remote: true, class: "core-sprite bookmarked hide-text" %>
+<!--  else we will show the bookmark icon so that user can send a post request  -->
+<% else %>
+	<%= link_to "Bookmark", post_bookmarks_path(post), method: :post, remote: true, class: "core-sprite bookmark hide-text" %>
+<% end %>

@@ -1,0 +1,78 @@
+<!-- standard is the version that we can define the way we want (uploaders->photo_uploader.rb) -->
+
+<% @posts.each do |post| %>
+
+	<div class="card mt-3 post">
+		
+    <!-- username/user avatar/delete options -->	
+		<div class="card-header d-flex align-items-center">
+			<%=  link_to user_path(post.user), class: "no-text-decoration" do %>
+				<%= image_tag avatar_url(post.user), class: "post-author-icon" %>
+			<% end %>
+
+			<%= link_to user_path(post.user), class: "normal-color no-text-decoration", title: post.user.name do%>
+				<strong><%= post.user.name %></strong>
+			<% end %>
+    <!-- show the delete post icon only when signed in user is the owner of the post. is_belongs_to is a method defined in post.rb model file -->
+			<% if post.is_belongs_to? current_user %>
+		        <%= link_to post_path(post), method: :delete, class: "ml-auto delete-post-icon mx-0 my-auto" do %>
+		          <i class="far fa-trash-alt" aria-hidden="true"></i>
+		        <% end %>
+	      	<% end %>
+		</div>
+
+
+<!----------------------- DISPLAY PHOTOS USING BOOTSTRAP MODAL------to stop auto-slide: data-interval="false"---------------------------------------- -->
+<%= render "photos", {post: post}%>
+
+
+<!------------------------------------------------------LIKE/COMMENT/BOOKMARK----------------------------------------------------------------- -->
+
+	<div class="card-body">
+		
+		<div class="row-actions" style="display: flex; margin-top: 3%;margin-bottom: 3%;">
+          
+          <!-- LIKE ICON -->
+          <!--change the icon of love react from red to normal if a like_id already exists and vice-versa! We are passing the required data in params, {}, to the file which is rendered here-->
+            <div id="like-icon-post-<%= post.id.to_s %>">
+          		<%= render "like_icon", {is_liked: post.is_liked(current_user), post: post} %>
+            </div>
+
+            <!-- COMMENT ICON --> 
+			<a href="#", class="core-sprite comment hide-text">Comment</a>
+
+			<!-- BOOKMARK ICON -->
+	        <div id="bookmark-icon-post-<%= post.id.to_s %>" class="ml-auto">
+          		<%= render "bookmark_icon", {is_bookmarked: post.is_bookmarked(current_user), post: post} %>
+        	</div>
+
+		</div>
+
+		<!-- LIKE TEXT LOGIC -->
+		<!-- styling the text of likes' length and users who like it! We are passing post.likes as likes, in params to the file which is rendered here -->
+		<div id="like-text-post-<%= post.id.to_s %>">
+        	<%= render "like_text", {likes: post.likes} %>
+        </div>
+		
+		<!-- COMMENTS LIST -->
+		<div>
+			<span><strong><%= post.user.name %></strong></span>
+			<span><%= post.content %></span>
+		</div>
+		<div id="comment-post-<%= @post.id.to_s %>">
+        	<%= render "comment_list", {post: post} %>
+      	</div>
+
+		<%= link_to time_ago_in_words(post.created_at).upcase + " AGO ", post_path(post), class: "light-color post-time no-text-decoration"%>
+		<hr>
+
+		<!-- COMMENT FORM -->
+		<div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
+			<%= render "comment_form", {post: post} %>
+		</div>
+	
+	</div>
+
+</div>
+
+<% end %>

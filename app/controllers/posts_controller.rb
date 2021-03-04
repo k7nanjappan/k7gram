@@ -13,7 +13,7 @@
       if @post.save
         if params[:images]
           params[:images].each do |img|
-            @post.photos.create(image: img[1])
+            @post.photos.create(image: params[:images][img])
           end
         end
         redirect_to posts_path

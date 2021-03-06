@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
 
+
+
     <div class="col-lg-6 landing-left">
       <%= render 'devise/shared/dummy_phone' %>
       </div>
@@ -15,25 +17,27 @@
           <div class="form-group">
           <!--  <%= f.label :email %><br /> -->
 
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t("email"), class: "form-control  font-mid" %>
           </div>
 
           <div class="form-group">
           <!--  <%= f.label :password %><br /> -->
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: t("password"), class: "form-control  font-mid" %>
           </div>
 
-          
+
           <br>
           <div class="actions">
-            <%= f.submit "Log in", class: "btn btn-primary " %>
+            <%= f.submit t("login"), class: "btn btn-primary font-mid" %>
           </div>
           <br>
         <% end %>
       </div>
+
       <div class="redirect-links box">
-        <%= render "devise/shared/links" %>
+      <div>  <%= render "devise/shared/links" %> </div>
       </div>
+
       </div>
     </div>
   </div>

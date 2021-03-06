@@ -19,11 +19,12 @@
 //import * as ActiveStorage from "@rails/activestorage"
 //import "channels"
 
+
 import "bootstrap";
 import "../stylesheets/application";
 import Dropzone from "dropzone";
 require("@rails/ujs").start()
-require("turbolinks").start()
+//require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 //require("packs/custom")
@@ -35,9 +36,14 @@ window.toastr = toastr
 //global.toastr = require("toastr")
 
 
+
+
+// Dropzone code
+
+
 Dropzone.autoDiscover = false;
 
-$(document).ready(function() {
+$("#upload").ready(function() {
 	$(".upload-images").dropzone( {
 		addRemoveLinks: true,
 		maxFilesize: 1,
@@ -71,6 +77,8 @@ $(document).ready(function() {
 		}
 	})
 });
+
+
 
 //Rails.start()
 //Turbolinks.start()

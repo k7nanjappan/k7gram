@@ -1,13 +1,13 @@
 
 <nav class="navbar navbar-expand-lg navbar-light ">
-  <div class="container-fluid">
+  <div data-turbolinks="false" class="container-fluid">
     <%= link_to "Icon", root_path, class:"navbar-brand core-sprite hide-text" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="d-flex ml-md-auto" style="width: 300px;">
-      <input class="form-control text-center common-btn" type="search" placeholder="Search" aria-label="Search" style="text-align:center;">
+      <input class="form-control text-center common-btn" type="search" placeholder= <%= t("search") %> aria-label="Search" style="text-align:center;">
     </form>
     <form class="d-flex ml-md-auto ">
       <ul class="navbar-nav ml-md-auto">
@@ -17,10 +17,31 @@
         <li class="nav-item">
           <a class="nav-link core-sprite notification-icon hide-text" href="#"></a>
         </li>
-        <li class="nav-item">
-          <%= link_to "", user_path(current_user), class: "nav-link core-sprite profile-icon hide-text" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle nav-link core-sprite profile-icon hide-text" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+          <!-- <button class="btn nav-link core-sprite profile-icon hide-text" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+
+            <div class="row dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">  <%= link_to t("account"), user_path(current_user) %></a>
+              <% eng = :en %>
+              <% jap = :ja %>
+              <% if I18n.locale == jap %>
+                  <a class="dropdown-item" href="#" style="padding: 7.5px 29px 5px; color: #8e8e8e !important;">  <%= link_to "🇺🇸 ENGLISH", locale: :en, class: "btn btn-default" %></a>
+                  <a class="dropdown-item" href="#"> <%= link_to "🇺🇸 ENGLISH", class: "nav-link", locale: :en %> </a>
+              <% elsif I18n.locale == eng %>
+                <a class="dropdown-item" href="#"> <%= link_to '🇯🇵 日本語', locale: :ja %> </a>
+              <% end %>
+              
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"><%= link_to t("logout"), destroy_user_session_path, method: :delete  %></a>
+            </div>
+
+
+
         <!--  <a class="nav-link core-sprite profile-icon hide-text" href="#"></a> -->
         </li>
+
       </ul>
     </form>
   </div>

@@ -8,6 +8,21 @@ body {
   font-size: 14px;
   color: 262626;
 }
+
+.font-mid {
+  font-size: 12px;
+}
+
+.dropdown-menu{
+  background-color: transparent;
+  border: transparent;
+  border: none;
+}
+.dropdown-menu .dropdown-item > li > a:hover {
+  background-image: none;
+  background-color: #000;
+}
+
 .navbar {
   background-color: #fff;
   border-bottom: 1px solid rgba(0,0,0,.0975);
@@ -127,7 +142,15 @@ body {
    }
 }
 
+
+
 footer .nav-item {
+   color: #8e8e8e !important;
+   font-size: 12px;
+   font-weight: bold;
+}
+
+.lang-item {
    color: #8e8e8e !important;
    font-size: 12px;
    font-weight: bold;

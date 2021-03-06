@@ -69,6 +69,7 @@ gem 'carrierwave', '~>  1.0'
 gem 'cloudinary'
 gem 'figaro'
 gem 'dropzonejs-rails'
+gem 'rails-i18n'
 
 group :production do
   gem 'pg', '1.2.3'

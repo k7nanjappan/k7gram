@@ -1,13 +1,14 @@
 <!-- rails' form for helper writes HTML code for us! Here, on pressing submit button, routes will send the request to posts controller which will see what needs to be done ahead -->
 
 
+
 <!-- STYLING THE POST FORM -->
 
 <div class="d-flex flex-column align-items-center mt-3">
 	<div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
 		<div class="card">
 			<div class="card-header">
-				Create Post
+				<%= t("create") %>
 			</div>
 			<div class="card-body">
 				<%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
@@ -16,12 +17,12 @@
 							<%= image_tag avatar_url(current_user), class: "post-author-icon" %>
 						</div>
 						<div class="col pl-0">
-							<%= f.text_field :content, class: "form-control border-0", placeholder: "Say something about this..." %>
+							<%= f.text_field :content, class: "form-control border-0", placeholder: t("caption") %>
 						</div>
 					</div>
 
-		<div class="fallback">
-			<%= file_field_tag "images[]", type: :file, multiple: true %>
+		<div class="fallback" id="upload" >
+			<%= file_field_tag "images[]", type: :file, multiple: true %> <!-- CHECK %= EDIT -->
 		</div>
 		<div class="dz-message m-0"></div>
 			<div class="dropzone-previews mb-3">
@@ -29,7 +30,7 @@
 					<i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #dddfe2"></i>
 				</div>
 			</div>
-		<%= f.submit "Post", class: "btn btn-primary" %>
+		<%= f.submit t("share"), class: "btn btn-primary" %>
 	<% end %>
 </div>
 		</div>
@@ -84,11 +85,11 @@
 
       <div class="card-body">
         <div class="row actions">
-          <a href="#" class="core-sprite love hide-text">Love </a>
-          <a href="#" class="core-sprite comment hide-text">Comment </a>
-          <a href="#" class="core-sprite bookmark hide-text ml-auto">Bookmark</a>
+          <a class="core-sprite love hide-text">Love </a>
+          <a class="core-sprite comment hide-text">Comment </a>
+          <a class="core-sprite bookmark hide-text ml-auto">Bookmark</a>
         </div>
-        <div><strong><%= pluralize(16,"like") %></strong></div>
+        <div><strong><%= pluralize(16, t("like")) %></strong></div>
         <div>
           <span><strong><%= post.user.name %></strong></span>
           <span><%= post.content %></span>
@@ -100,7 +101,7 @@
         <div class="row actions">
           <form class="w-100" action="#">
             <div>
-              <textarea class="form-control comment-input border-0" placeholder="Add a comment.." rows="1"></textarea>
+              <textarea class="form-control comment-input border-0" placeholder= "<%= t("add_comment") %>" rows="1"></textarea>
             </div>
           </form>
         </div>

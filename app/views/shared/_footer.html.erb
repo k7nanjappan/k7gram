@@ -1,20 +1,60 @@
+
 <footer>
+
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
     <span class="navbar-toggle-icon "></span>
   </button>
   <div class="collapse navbar-collapse" id="navbar">
     <div class="navbar-nav mx-auto">
-      <a href="" class="nav-item nav-link" href="#">ABOUT US</a>
-      <a href="" class="nav-item nav-link" href="#">SUPPORT</a>
-      <a href="" class="nav-item nav-link" href="#">BLOG</a>
-      <a href="" class="nav-item nav-link" href="#">PRESS</a>
-      <a href="" class="nav-item nav-link" href="#">API</a>
-      <a href="" class="nav-item nav-link" href="#">JOB</a>
-      <a href="" class="nav-item nav-link" href="#">PRIVACY</a>
-      <a href="" class="nav-item nav-link" href="#">TERMS</a>
-      <a href="" class="nav-item nav-link" href="#">DIRECTORY</a>
-      <a href="https://k7gram.herokuapp.com" class="nav-item nav-link" href="https://k7gram.herokuapp.com">日本語</a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("about") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("blog") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("jobs") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("help") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("api") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("privacy") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("terms") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("top_acc") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("hashtags") %></a>
+      <a href="" class="nav-item nav-link" href="#"><%= t("locations") %></a>
+        <!-- <a href="" class="nav-item nav-link" href="#">
+          <!%= content_tag :li do %>
+            <!%= link_to 'ENGLISH', locale: :en >
+          <!% end unless current_page?(locale: :en) %>
+
+          <!%= content_tag :li do %>
+            <!%= link_to '日本語', locale: :ja >
+          <!% end unless current_page?(locale: :ja) %>
+        </a> -->
+
+
+
+        <% eng = :en %>
+        <% jap = :ja %>
+        <!--% if I18n.locale == jap %>
+            <!--%= link_to '<a href="" class="nav-item nav-link" href="#">ENGLiSH</a>'.html_safe %>
+        <!--% elsif I18n.locale == eng %>
+            <!--%= link_to '<a href="" class="nav-item nav-link" href="#">日本語</a>'.html_safe %>
+        <!--% end % -->
+
+        <%= content_tag :li do %>
+        <div data-turbolinks="false"  style="padding: 7.5px 29px 5px; text-decoration:none color: #8e8e8e !important; "><%= link_to "🇺🇸 ENGLISH", class: "lang-item", locale: :en %></div>
+        <% end unless current_page?(locale: :en) %>
+
+        <%= content_tag :li do %>
+        <div data-turbolinks="false" class="lang-item nav-link mx-auto" style="padding: 7.5px 29px 5px; color: #8e8e8e !important;"><%= link_to '🇯🇵 日本語', locale: :ja %></div>
+        <% end unless current_page?(locale: :ja) %>
+
+
+
+        <!--%= link_to '<a href="" class="nav-item nav-link" href="#">日本語</a>', locale: :en %-->
+
+
+
     </div>
   </div>
 </nav>

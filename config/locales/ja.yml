@@ -1,0 +1,83 @@
+
+ja:
+
+  hello: "Konnichiwa"
+  email: "メールアドレス"
+  create: "新規投稿"
+  password: "パスワード"
+  login: "ログイン"
+  no_account: "アカウントをお持ちでないですか？"
+  signup: "登録する"
+  forgot_password: "パスワードを忘れた場合"
+  ins_message_html: "<strong>登録して友達の写真や動画をチェック<br>しよう</strong>"
+  full_name: "フルネーム"
+  password_confirm: "パスワードを確認"
+  already_user: "アカウントをお持ちですか?"
+  policy_html: "<br>登録することで、K7bookの利用規約、データに関 <br>するポリシー、<strong>Cookie</strong>ポリシーに同意するものと<br>します。"
+  about: "基本データ"
+  blog: "ブログ"
+  jobs: "求人"
+  help: "ヘルプ"
+  api: "API"
+  privacy: "プライバシー"
+  terms: "利用規約"
+  top_acc: "人気アカウント"
+  hashtags: "ハッシュタグ"
+  locations: "所在地"
+  search: "検索"
+  caption: "キャプションを入力..."
+  share: "シェア"
+  like: "いいね!"
+  add_comment: "コメントを追加..."
+  edit_profile: "プロフィールを編集"
+  settings: "設定"
+  change_password: "パスワードを変更"
+  logout: "ログアウト"
+  cancel: "キャンセル"
+  name: "名前"
+  website: "ウェブサイト"
+  bio: "自己紹介"
+  submit: "送信する"
+  leave_blank: "変更したくない場合は空白のままにしてください"
+  account: "アカウント"
+
+
+  datetime:
+     distance_in_words:
+               about_x_hours:
+                 one: 約1時間
+                 other: 約%{count}時間
+               about_x_months:
+                 one: 約1ヶ月
+                 other: 約%{count}ヶ月
+               about_x_years:
+                 one: 約1年
+                 other: 約%{count}年
+               almost_x_years:
+                 one: 1年弱
+                 other: "%{count}年弱"
+               half_a_minute: 30秒前後
+               less_than_x_seconds:
+                 one: 1秒以内
+                 other: "%{count}秒未満"
+               less_than_x_minutes:
+                 one: 1分以内
+                 other: "%{count}分未満"
+               over_x_years:
+                 one: 1年以上
+                 other: "%{count}年以上"
+               x_seconds:
+                 one: 1秒
+                 other: "%{count}秒"
+               x_minutes:
+                 one: 1分
+                 other: "%{count}分"
+               x_days:
+                 one: 1日
+                 other: "%{count}日"
+               x_months:
+                 one: 1ヶ月
+                 other: "%{count}ヶ月"
+               x_years:
+                 one: 1年
+                 other: "%{count}年"

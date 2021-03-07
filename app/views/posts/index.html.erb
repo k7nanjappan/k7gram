@@ -5,6 +5,8 @@
 <!-- STYLING THE POST FORM -->
 
 <div class="d-flex flex-column align-items-center mt-3">
+
+
 	<div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
 		<div class="card">
 			<div class="card-header">
@@ -21,6 +23,7 @@
 						</div>
 					</div>
 
+
 		<div class="fallback" id="upload" >
 			<%= file_field_tag "images[]", type: :file, multiple: true %> <!-- CHECK %= EDIT -->
 		</div>
@@ -30,46 +33,46 @@
 					<i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #dddfe2"></i>
 				</div>
 			</div>
-		<%= f.submit t("share"), class: "btn btn-primary" %>
-	<% end %>
-</div>
+				<%= f.submit t("share"), class: "btn btn-primary" %>
+			<% end %>
+			</div>
 		</div>
 
 
 
-<% @posts.each do |post| %>
+		<% @posts.each do |post| %>
+    	<div class="card mt-3 post">
+      	<div class="card-header d-flex align-items-center">
 
-    <div class="card mt-3 post">
-      <div class="card-header d-flex align-items-center">
-        <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-          <%= image_tag avatar_url(post.user), class: "post-author-icon" %>
-        <% end %>
-        <%= link_to user_path(post.user), class: "normal-color no-text-decoration",
-            title: post.user.name do%>
-        <strong><%= post.user.name %></strong>
-        <% end %>
-        <% if post.is_belongs_to? current_user %>
-          <%= link_to post_path(post), method: :delete, class: "ml-auto delete-post-icon mx-0 my-auto" do %>
-            <i class="far fa-trash-alt" aria-hidden="true"></i>
-        <% end %>
-        <% end %>
+					<%= link_to user_path(post.user), class: "no-text-decoration" do %>
+	          <%= image_tag avatar_url(post.user), class: "post-author-icon" %>
+	        <% end %>
+
+					<%= link_to user_path(post.user), class: "normal-color no-text-decoration", title: post.user.name do%>
+	        	<strong><%= post.user.name %></strong>
+	        <% end %>
+	        <% if post.is_belongs_to? current_user %>
+	          <%= link_to post_path(post), method: :delete, class: "ml-auto delete-post-icon mx-0 my-auto" do %>
+	            <i class="far fa-trash-alt" aria-hidden="true"></i>
+	        	<% end %>
+	        <% end %>
       </div>
 
-      <% if post.photos.size == 1 %>
-          <%= image_tag post.photos.first.image.url(:standard), class: "card-img-top" %>
-      <% else %>
-        <div class="carousel slide" data-ride="carousel" id="carousel-post-<%= post.id %>">
-          <div class="carousel-inner">
-            <% post.photos.each do |photo| %>
-              <% if photo == post.photos.first %>
-                <div class="carousel-item active">
-              <% else %>
-                <div class="carousel-item">
-              <% end %>
-                <%= image_tag photo.image.url(:standard), class: "card-img-top" %>
-              </div>
-            <% end %>
-          </div>
+		      <% if post.photos.size == 1 %>
+		      	 <%= image_tag post.photos.first.image.url(:standard), class: "card-img-top" %>
+		      <% else %>
+		        <div class="carousel slide" data-ride="carousel" id="carousel-post-<%= post.id %>">
+		          <div class="carousel-inner">
+		            <% post.photos.each do |photo| %>
+		              <% if photo == post.photos.first %>
+		                <div class="carousel-item active">
+		              <% else %>
+		                <div class="carousel-item">
+		              <% end %>
+		                <%= image_tag photo.image.url(:standard), class: "card-img-top" %>
+		              	</div>
+		            <% end %>
+		          </div>
 
           <a class="carousel-control-prev"  href="#carousel-post-<%= post.id %>"  data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -85,9 +88,9 @@
 
       <div class="card-body">
         <div class="row actions">
-          <a class="core-sprite love hide-text">Love </a>
-          <a class="core-sprite comment hide-text">Comment </a>
-          <a class="core-sprite bookmark hide-text ml-auto">Bookmark</a>
+          <a class="core-sprite-en love hide-text">Love </a>
+          <a class="core-sprite-en comment hide-text">Comment </a>
+          <a class="core-sprite-en bookmark hide-text ml-auto">Bookmark</a>
         </div>
         <div><strong><%= pluralize(16, t("like")) %></strong></div>
         <div>
@@ -107,7 +110,14 @@
         </div>
       </div>
 
+
+
     </div>
 
 
+
+
 <% end %>
+</div>
+</div>
+<br><br><br>

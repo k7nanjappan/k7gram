@@ -42,11 +42,11 @@
         <!--% end % -->
 
         <%= content_tag :li do %>
-        <div data-turbolinks="false"  style="padding: 7.5px 29px 5px; text-decoration:none color: #8e8e8e !important; "><%= link_to "🇺🇸 ENGLISH", class: "lang-item", locale: :en %></div>
+        <div data-turbolinks="false"  style="padding: 1px -1px 5px; color: #8e8e8e !important; "><%= link_to '<div style="text-decoration: none; color: #8e8e8e; font-size: 14px;">🇺🇸 English</div>'.html_safe, {locale: :en}, {class: "navbar-brand hide-text flag-usa"} %></div>
         <% end unless current_page?(locale: :en) %>
 
         <%= content_tag :li do %>
-        <div data-turbolinks="false" class="lang-item nav-link mx-auto" style="padding: 7.5px 29px 5px; color: #8e8e8e !important;"><%= link_to '🇯🇵 日本語', locale: :ja %></div>
+        <div data-turbolinks="false" style="padding: 1px -1px 5px; color: #8e8e8e !important;"><%= link_to '<div style="text-decoration: none; color: #8e8e8e; font-size: 13px;"><strong>🇯🇵 日本語</strong></div>'.html_safe, {locale: :ja}, {class:"navbar-brand hide-text flag-jap"} %></div>
         <% end unless current_page?(locale: :ja) %>
 
 

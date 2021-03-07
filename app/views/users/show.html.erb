@@ -9,10 +9,10 @@
     <div class="row">
       <p class="username"><%= @user.name %></p>
       <% if @user == current_user %>
-      <button type="button" class="btn btn-outline-dark common-btn edit-profile-btn" style="font-weight: bold; margin: 5px 0 0 15px;height: 28px;line-height: 24px; padding: 0 24px; border-color: #dbdbdb; font-size: 14px;">
-        <%= link_to t("edit_profile"), edit_user_registration_path%>
-      </button>
-        <button type="button" class="core-sprite setting" data-toggle="modal" data-target="#exampleModal"></button>
+      <!-- button type="button" class="btn btn-outline-dark common-btn edit-profile-btn" style="font-weight: bold; margin: 5px 0 0 15px;height: 28px;line-height: 24px; padding: 0 24px; border-color: #dbdbdb; font-size: 14px;" -->
+
+        <%= link_to t("edit_profile"), edit_user_registration_path, {class: "btn btn-outline-dark common-btn edit-profile-btn", style: "font-weight: bold; margin: 5px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; border-color: #dbdbdb; font-size: 14px;"}%>
+        <button type="button" class="core-sprite-en setting" data-toggle="modal" data-target="#exampleModal"></button>
       <% end %>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -35,7 +35,15 @@
         </div>
     </div>
     <div class="row">
-      <p class="email"><%= @user.email %></p>
+      <b class="email"><%= @user.email %></b>
+    </div>
+    <div class="row">
+      <a><%= @user.bio %></a>
+    </div>
+    <div class="row">
+      <a target="_blank"><%= link_to @user.website, "http://#{@user.website}", {style: "text-decoration: none; color: #123767;"} %> </a>
+
+
     </div>
   </div>
 </div>

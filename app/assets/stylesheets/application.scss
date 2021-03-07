@@ -13,6 +13,23 @@ body {
   font-size: 12px;
 }
 
+.underline {
+  text-decoration: none !important;
+  color: black;
+  font-weight: bold;
+  margin: 5px 0 0 15px;
+  height: 28px;
+  line-height: 24px;
+  padding: 0 24px;
+  border-color: #dbdbdb;
+  font-size: 14px;
+}
+
+.underline:hover {
+  text-decoration: none !important;
+  color: white;
+}
+
 .dropdown-menu{
   background-color: transparent;
   border: transparent;
@@ -62,6 +79,30 @@ body {
 .logout-jp {
   background-image: image-url("logout-jp.png");
   background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.flag-usa {
+  background-image: image-url("flag-usa.png");
+  background-size: 360px 379px;
+  background-repeat: no-repeat;
+}
+
+.flag-jap {
+  background-image: image-url("flag-jap.png");
+  background-size: 365px 379px;
+  background-repeat: no-repeat;
+}
+
+.flag-usa2 {
+  background-image: image-url("flag-usa2.png");
+  background-size: 392px 379px;
+  background-repeat: no-repeat;
+}
+
+.flag-jap2 {
+  background-image: image-url("flag-jap2.png");
+  background-size: 392px 379px;
   background-repeat: no-repeat;
 }
 
@@ -184,7 +225,13 @@ body {
    }
 }
 
+.language-underline a:link{
+    text-decoration: none !important;
+}
 
+footer {
+  width: 100%;
+}
 
 footer .nav-item {
    color: #8e8e8e !important;
@@ -259,6 +306,10 @@ footer .nav-item {
 .edit-profile-btn {
   margin: 5px 0 0 15px;
   font-weight: bold;
+}
+
+.edit-profile-btn:hover {
+  color: white;
 }
 
 .setting {

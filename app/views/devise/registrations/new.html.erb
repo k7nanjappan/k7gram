@@ -1,3 +1,5 @@
+<br>
+<br><br>
 <div class="container">
   <div class="row">
 
@@ -10,7 +12,16 @@
       <div>
         <div class="form-login box">
 
-          <h2 class="core-sprite brand-name-img"></h2>
+          <% eng = :en %>
+          <% jap = :ja %>
+          <% if I18n.locale == jap %>
+              <h2 class="core-sprite-ja brand-name-img"></h2>
+          <% elsif I18n.locale == eng %>
+              <h2 class="core-sprite-en brand-name-img"></h2>
+          <% end %>
+
+          <!-- <h2 class="core-sprite brand-name-img"></h2> -->
+
           <h5 class="light-color"> <%= t("ins_message_html") %>
 
             <hr>
@@ -55,3 +66,5 @@
 </div>
 </div>
 </div>
+<br>
+<br><br>

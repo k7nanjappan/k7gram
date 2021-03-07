@@ -29,10 +29,52 @@ body {
   height: 77px;
 }
 
-.core-sprite {
-  background-image: image-url("core-sprite-2x.png");
+.core-sprite-en {
+  background-image: image-url("core-sprite-2x-en.png");
   background-size: 405px 379px;
   background-repeat: no-repeat;
+}
+
+.core-sprite-ja {
+  background-image: image-url("core-sprite-2x-ja.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.account {
+  background-image: image-url("profile.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.logout {
+  background-image: image-url("logout.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.account-jp {
+  background-image: image-url("profile-jp.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.logout-jp {
+  background-image: image-url("logout-jp.png");
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+
+.america {
+  background-image: image-url("america.png");
+  //background-size: 300px 186px;
+  display: block;
+  width:23px;
+  height:95px;
+  width: auto;
+  height: auto;
+
+  //background-repeat: no-repeat;
 }
 
 .navbar-brand {
@@ -306,7 +348,7 @@ footer .nav-item {
 }
 
 .dz-remove {
-	@extend .core-sprite;
+	@extend .core-sprite-en;
 	@extend .hide-text;
 	position: absolute;
 	top: 9px;

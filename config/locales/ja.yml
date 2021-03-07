@@ -40,6 +40,7 @@ ja:
   submit: "送信する"
   leave_blank: "変更したくない場合は空白のままにしてください"
   account: "アカウント"
+  ago: "前"
 
 
   datetime:

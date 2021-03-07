@@ -15,24 +15,28 @@
         <button type="button" class="core-sprite-en setting" data-toggle="modal" data-target="#exampleModal"></button>
       <% end %>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> <%= t("settings") %> </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="list-group text-center">
-                <a href="#" class="list-group-item item-group-item-action"><%= t("change_password") %></a>
-                <%= link_to t("logout"), destroy_user_session_path, method: :delete, class: "list-group-item item-group-item-action" %>
-                <a href="#" class="list-group-item item-group-item-action" data-dismiss="modal"><%= t("cancel") %></a>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+          <div class="modal-dialog modal-dialog-centered justify-content-center" role="document" >
+            <div class="modal-content w-50" style="border-radius: 10px;">
+
+
+              <div class="list-group text-center" style="border-radius: 15px">
+                <a href="#" class="list-group-item item-group-item-action setting-modal"><%= t("change_password") %></a>
+                <%= link_to t("logout"), destroy_user_session_path, method: :delete, class: "list-group-item item-group-item-action setting-modal" %>
+                <!--#%= link_to t("logout"), destroy_user_session_path, method: :delete, class: "list-group-item item-group-item-action" %-->
+                <a href="#" class="list-group-item item-group-item-action setting-modal" data-dismiss="modal"><%= t("cancel") %></a>
 
               </div>
             </div>
           </div>
         </div>
+
+
+
+
+
     </div>
     <div class="row">
       <b class="email"><%= @user.email %></b>
@@ -41,7 +45,7 @@
       <a><%= @user.bio %></a>
     </div>
     <div class="row">
-      <a target="_blank"><%= link_to @user.website, "http://#{@user.website}", {style: "text-decoration: none; color: #123767;"} %> </a>
+      <a><%= link_to @user.website, "http://#{@user.website}", target: :_blank, class: "website" %> </a>
 
 
     </div>

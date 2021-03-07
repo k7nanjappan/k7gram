@@ -4,7 +4,7 @@
 	<div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
 		<div class="card">
 			<div class="card-header">
-				<%= t("create") %>
+				<strong><%= t("create") %></strong>
 			</div>
 			<div class="card-body">
 				<%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"} do |f| %>
@@ -92,7 +92,7 @@
           <span><%= post.content %></span>
         </div>
         <div class="light-color post-time">
-          <%= time_ago_in_words(post.created_at).upcase %> AGO
+          <%= time_ago_in_words(post.created_at).upcase %><%= t("ago") %>
         </div>
         <hr>
         <div class="row actions">
@@ -111,6 +111,10 @@
 
 
 
+<% end %>
+
+<% if @posts %>
+<br><br>
 <% end %>
 </div>
 </div>

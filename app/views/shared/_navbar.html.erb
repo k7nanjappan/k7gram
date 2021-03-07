@@ -30,18 +30,18 @@
           <a class="nav-link nav-link core-sprite-en profile-icon hide-text" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
           <!-- <button class="btn nav-link core-sprite profile-icon hide-text" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 
-            <div class="row dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+            <div class="row dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown" style="background: white; color:#fff;">
 
               <% eng = :en %>
               <% jap = :ja %>
               <% if I18n.locale == jap %>
                 <a href="#">  <%= link_to t("account"), user_path(current_user), class:"navbar-brand account-jp hide-text" %></a>
-                <br>  <a  href="#"> <%= link_to "🇺🇸 ENGLISH", class: "nav-link font-mid", locale: :en %> </a>
+                <br>  <a  href="#"> <%= link_to "🇺🇸 ENGLISH", class: "nav-link font-mid text-decoration: none;", locale: :en %> </a>
                 <div class="dropdown-divider"></div>
                 <a  href="#"><%= link_to t("logout"), destroy_user_session_path, class:"navbar-brand logout-jp hide-text", method: :delete  %></a>
               <% elsif I18n.locale == eng %>
                 <a href="#">  <%= link_to t("account"), user_path(current_user), class:"navbar-brand account hide-text" %></a>
-                <a  href="#"> <%= link_to '🇯🇵 日本語', locale: :ja %> </a>
+                <a  href="#"> <%= link_to '🇯🇵 日本語',class: "nav-link font-mid text-decoration: none;", locale: :ja %> </a>
                 <div class="dropdown-divider"></div>
                 <a  href="#"><%= link_to t("logout"), destroy_user_session_path, class:"navbar-brand logout hide-text", method: :delete  %></a>
               <% end %>

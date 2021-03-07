@@ -36,7 +36,7 @@
               <% jap = :ja %>
               <% if I18n.locale == jap %>
                 <a href="#">  <%= link_to t("account"), user_path(current_user), class:"navbar-brand account-jp hide-text" %></a>
-                <br> <a  href="#"">     <%= link_to '<div class= "language" style="text-decoration: none !important; color: #646464; font-size: 14px; ">🇺🇸 English</div>'.html_safe, {locale: :en}, {class: "navbar-brand hide-text flag-usa2"} %> </a>
+                <a href="#">  <%= link_to '<div class= "language" style="text-decoration: none !important; color: #646464; font-size: 14px; ">🇺🇸 English</div>'.html_safe, {locale: :en}, {class: "navbar-brand hide-text flag-usa2"} %> </a>
                 <div class="dropdown-divider"></div>
                 <a  href="#"><%= link_to t("logout"), destroy_user_session_path, class:"navbar-brand logout-jp hide-text", method: :delete  %></a>
               <% elsif I18n.locale == eng %>

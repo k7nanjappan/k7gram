@@ -35,15 +35,15 @@
               <% eng = :en %>
               <% jap = :ja %>
               <% if I18n.locale == jap %>
-                <a class="navbar-shade" href="#">  <%= link_to " ", user_path(current_user), class:"navbar-brand account-jp hide-text navbar-shade dropdown-item" %></a>
+                <a class="navbar-shade" href="#">  <%= link_to "", user_path(current_user), class:"navbar-brand account-jp hide-text navbar-shade dropdown-item" %></a>
                 <a href="#">  <%= link_to '<div class= "language" style="text-decoration: none !important; color: #646464; font-size: 14px; "></div>'.html_safe, {locale: :en}, {class: "navbar-brand hide-text flag-usa2 dropdown-item"} %> </a>
                 <div class="dropdown-divider"></div>
-                <a  href="#"><%= link_to " ", destroy_user_session_path, class:"navbar-brand logout-jp hide-text dropdown-item", method: :delete  %></a>
+                <a  href="#"><%= link_to "", destroy_user_session_path, class:"navbar-brand logout-jp hide-text dropdown-item", method: :delete  %></a>
               <% elsif I18n.locale == eng %>
-                <a href="#">  <%= link_to " ", user_path(current_user), class:"navbar-brand account hide-text dropdown-item" %></a>
-                <a  href="#"> <%= link_to '<div class="language" style="text-decoration: none; color: #646464; font-size: 15px;"> </div>'.html_safe, {locale: :ja}, {class: "navbar-brand hide-text flag-jap2 dropdown-item"} %> </a>
+                <a href="#">  <%= link_to "", user_path(current_user), class:"navbar-brand account hide-text dropdown-item" %></a>
+                <a  href="#"> <%= link_to '<div class="language" style="text-decoration: none; color: #646464; font-size: 15px;"></div>'.html_safe, {locale: :ja}, {class: "navbar-brand hide-text flag-jap2 dropdown-item"} %> </a>
                 <div class="dropdown-divider"></div>
-                <a  href="#"><%= link_to " ", destroy_user_session_path, class:"navbar-brand logout hide-text dropdown-item", method: :delete  %></a>
+                <a  href="#"><%= link_to "", destroy_user_session_path, class:"navbar-brand logout hide-text dropdown-item", method: :delete  %></a>
               <% end %>
 
 

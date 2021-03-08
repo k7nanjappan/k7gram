@@ -2,7 +2,6 @@
 @import "toastr/toastr";
 @import "dropzone/dropzone";
 
-input:focus {outline: none; }
 
 body {
 	background-color: #fafafa;
@@ -16,11 +15,6 @@ navbar-shade:hover {
 
 nav {
   z-index: 9;
-}
-
-.dropdown-item.active, .dropdown-item:active {
-    color: #dbdbdb;
-    background-color: #dbdbdb;
 }
 
 // .modal {
@@ -137,25 +131,25 @@ nav {
 
 .account {
   background-image: image-url("profile.png");
-  background-size: 390px 379px;
+  background-size: 405px 379px;
   background-repeat: no-repeat;
 }
 
 .logout {
   background-image: image-url("logout.png");
-  background-size: 390px 379px;
+  background-size: 405px 379px;
   background-repeat: no-repeat;
 }
 
 .account-jp {
   background-image: image-url("profile-jp.png");
-  background-size: 390px 379px;
+  background-size: 405px 379px;
   background-repeat: no-repeat;
 }
 
 .logout-jp {
   background-image: image-url("logout-jp.png");
-  background-size: 390px 379px;
+  background-size: 405px 379px;
   background-repeat: no-repeat;
 }
 
@@ -173,13 +167,13 @@ nav {
 
 .flag-usa2 {
   background-image: image-url("flag-usa2.png");
-  background-size: 372px 379px;
+  background-size: 392px 379px;
   background-repeat: no-repeat;
 }
 
 .flag-jap2 {
   background-image: image-url("flag-jap2.png");
-  background-size: 376px 379px;
+  background-size: 392px 379px;
   background-repeat: no-repeat;
 }
 

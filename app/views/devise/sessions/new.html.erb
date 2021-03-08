@@ -23,7 +23,7 @@
         <% end %>
 
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name, locale: params[:locale])) do |f| %>
           <div class="form-group">
           <!--  <%= f.label :email %><br /> -->
 
@@ -37,6 +37,10 @@
 
 
           <br>
+
+
+
+
           <div class="actions">
             <%= f.submit t("login"), class: "btn btn-primary font-mid" %>
           </div>

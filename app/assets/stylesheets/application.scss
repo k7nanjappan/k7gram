@@ -2,11 +2,16 @@
 @import "toastr/toastr";
 @import "dropzone/dropzone";
 
+input:focus {outline: none; }
 
 body {
 	background-color: #fafafa;
 	font-size: 14px;
 	color: #262626;
+}
+
+navbar-shade:hover {
+	background-color: black;
 }
 
 nav {

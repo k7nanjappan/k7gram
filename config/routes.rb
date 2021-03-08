@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
 
-  # root to: redirect("/#{I18n.locale}/posts")
-  # root :to => redirect("/#{I18n.locale}/posts")
+  #root to: redirect("/#{I18n.locale}/posts")
+  #root :to => redirect("/#{I18n.locale}/posts")
+   #root :to =>'posts#index'
+   #root :to =>'pages#home'
    root :to =>'posts#index'
+   #root :to =>'users#show'
 
 
 

@@ -6,7 +6,7 @@
    # around_action :switch_locale
 
   def index
-    @posts = Post.all.limit(10).includes(:photos, :user).order('created_at desc')
+    @posts = Post.all.limit(10).includes(:photos, :user, :likes).order('created_at desc')
     @post = Post.new
   end
 
@@ -27,7 +27,10 @@
     end
 
     def show
-    @photos = @post.photos
+      @photos = @post.photos
+      @likes = @post.likes.includes(:user)
+      @comment = Comment.new
+      @is_liked = @post.is_liked(current_user)
     end
 
     def destroy

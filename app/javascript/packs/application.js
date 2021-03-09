@@ -80,6 +80,8 @@ $("#upload").ready(function() {
 
 
 
+
+
 //Rails.start()
 //Turbolinks.start()
 //ActiveStorage.start()

@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  #get 'pages/home'
+
+  #get 'posts/index'
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
 
-  #root to: redirect("/#{I18n.locale}/posts")
-  #root :to => redirect("/#{I18n.locale}/posts")
+  #root to: redirect("/#{I18n.locale}/posts/")
+  root :to => redirect("/#{I18n.locale}/posts")
    #root :to =>'posts#index'
    #root :to =>'pages#home'
-   root :to =>'posts#index'
+   #root :to =>'posts#index'
    #root :to =>'users#show'
 
 
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show, :create, :destroy] do
     resources :photos, only: [:create]
+    resources :likes, only: [:create, :destroy], shallow: true
+    resources :comments, only: [:index, :create, :destroy], shallow: true
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

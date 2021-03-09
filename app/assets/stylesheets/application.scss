@@ -579,3 +579,32 @@ footer .nav-item {
 	background-position: -150px -353px;
 	display: inherit;
 }
+
+.comment-list {
+	height: 310px;
+	overflow: auto;
+	word-wrap: break-word;
+}
+
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.post-show-img {
+	background-color: #fafafa;
+	margin: -10px 0;
+}
+
+.align-to-left {
+	margin: 0 -20px;
+}
+
+.delete-comment {
+	 width: 11px;
+	 height: 11px;
+	 background-position: -216px -112px;
+	 float: right;
+	 margin: 5px 0 0 10px;
+}

@@ -1,0 +1,63 @@
+<strong>
+<% current = 0 %>
+
+<% likes.each.with_index do |like, index| %>
+  <% if like.user.name == user.name %>
+    <% current = 1 %>
+    <% break %>
+  <% end %>
+<% end %>
+
+
+<% if current == 1 and likes.size == 1 %>
+You liked this
+<% elsif current == 1 and likes.size == 2%>
+You
+<% elsif current == 1 and likes.size > 2%>
+You,
+<% end %>
+
+
+  <% likes.each.with_index do |like, index| %>
+
+    <%if like.user.name == user.name %>
+      <% next %>
+    <% end %>
+
+    <% if likes.size == 1 %>
+      <%= like.user.name %> </strong> likes this
+    <% elsif like == likes.last %>
+      </strong> and <strong>
+        <%= + like.user.name %> </strong> like this
+    <% elsif index > 1 %>
+      </strong> <%= " and " + (likes.size-index).to_s + " others" %> like this
+      <% break %>
+    <% elsif index==likes.size-2 || index==1 %>
+      <%= like.user.name %>
+    <% else %>
+      <%= like.user.name + ", " %>
+    <% end %>
+  <% end %>
+
+
+
+
+
+Original Script:
+
+<strong>
+  <% likes.each.with_index do |like, index| %>
+    <% if likes.size == 1 %>
+      <%= like.user.name %> </strong> likes this
+    <% elsif like == likes.last %>
+      </strong> and <strong>
+        <%= + like.user.name %> </strong> like this
+    <% elsif index > 1 %>
+      </strong> <%= " and " + (likes.size-index).to_s + " others" %> Like this
+      <% break %>
+    <% elsif index==likes.size-2 || index==1 %>
+      <%= like.user.name %>
+    <% else %>
+      <%= like.user.name + ", " %>
+    <% end %>
+  <% end %>

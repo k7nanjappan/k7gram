@@ -1,3 +1,5 @@
+<% eng = :en %>
+<% jap = :ja %>
 <strong>
 <% current = 0 %>
 
@@ -10,13 +12,26 @@
 
 
 <% if current == 1 and likes.size == 1 %>
-You liked this
+  <% if I18n.locale == jap %>
+      <%= link_to "お前", user_path(user), class: "normal-color black_underline" %></strong>は「いいね！」しました <strong>
+  <% elsif I18n.locale == eng %>
+      <%= link_to "You", user_path(user), class: "normal-color black_underline" %> </strong> liked this <strong>
+    <% end %>
 <% elsif current == 1 and likes.size == 2%>
-You
+  <% if I18n.locale == jap %>
+      <%= link_to "お前", user_path(user), class: "normal-color black_underline" %>
+  <% elsif I18n.locale == eng %>
+      <%= link_to "You", user_path(user), class: "normal-color black_underline" %>
+  <% end %>
 <% elsif current == 1 and likes.size > 2%>
-You,
+  <% if I18n.locale == jap %>
+      <%= link_to "お前", user_path(user), class: "normal-color black_underline" %>、
+  <% elsif I18n.locale == eng %>
+      <%= link_to "You", user_path(user), class: "normal-color black_underline" %>,
+  <% end %>
 <% end %>
 
+</strong>
 
   <% likes.each.with_index do |like, index| %>
 
@@ -25,16 +40,33 @@ You,
     <% end %>
 
     <% if likes.size == 1 %>
-      <%= like.user.name %> </strong> likes this
+      <% if I18n.locale == jap %>
+          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> 「いいね！」しました
+      <% elsif I18n.locale == eng %>
+          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> liked this
+      <% end %>
     <% elsif like == likes.last %>
-      </strong> and <strong>
-        <%= + like.user.name %> </strong> like this
+      <% if I18n.locale == jap %>
+          </strong>、<strong>
+          <%=  link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %></strong>「いいね！」しました
+      <% elsif I18n.locale == eng %>
+          </strong> and <strong>
+          <%=  link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> liked this
+      <% end %>
     <% elsif index > 1 %>
-      </strong> <%= " and " + (likes.size-index).to_s + " others" %> like this
+      <% if I18n.locale == jap %>
+          </strong> <%= "、他の" + (likes.size-index).to_s + "人が" %>「いいね！」しました
+      <% elsif I18n.locale == eng %>
+          </strong> <%= " and " + (likes.size-index).to_s + " others" %> liked this
+      <% end %>
       <% break %>
     <% elsif index==likes.size-2 || index==1 %>
-      <%= like.user.name %>
+      <strong><%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %></strong>
     <% else %>
-      <%= like.user.name + ", " %>
+      <% if I18n.locale == jap %>
+          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" + "、" %>
+      <% elsif I18n.locale == eng %>
+          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" + ", " %>
+      <% end %>
     <% end %>
   <% end %>

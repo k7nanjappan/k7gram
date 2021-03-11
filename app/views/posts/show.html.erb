@@ -7,10 +7,10 @@
     </div>
       <div class="col-lg-4 col-md-5 mt-sm-4 mt-md-0">
         <div class="row px-3">
-          <%= link_to user_path(@post.user), class: "no-text-decoration" do %>
+          <%= link_to user_path(@post.user), class: "black_underline" do %>
             <%= image_tag avatar_url(@post.user), class: "post-author-icon" %>
           <% end %>
-          <%= link_to user_path(@post.user), class: "normal-color no-text-decoration d-flex align-self-center",
+          <%= link_to user_path(@post.user), class: "normal-color black_underline d-flex align-self-center",
           title: @post.user.name do%>
             <strong><%= @post.user.name %></strong>
             <% end %>
@@ -18,27 +18,17 @@
         <hr class="mb-0">
           <div class="comment-list py-2">
             <% if @post.content.present? %>
-              <span><strong><%= @post.user.name %></strong></span>
+              <span><strong><%= link_to @post.user.name, user_path(@post.user), class: "normal-color black_underline" %></strong></span>
               <span><%= @post.content %></span>
-
             <% end %>
-            <div> <br> </div>
+              <div>
+                <br>
+              </div>
 
             <div id="comment-post-<%= @post.id.to_s %>">
               <%= render "comment_list", {post: @post} %>
             </div>
 
-
-
-
-
-
-        <!--  <!% 100.times do %>
-            <div>
-              <span><strong>some_name</strong></span>
-              <span>some_comment</span>
-            </div>
-          <!% end %> -->
           </div>
         <hr class="mt-0">
           <div class="row actions">
@@ -52,21 +42,15 @@
               <%= render "like_text", {likes: @likes, user: current_user} %>
               <!-- %= render "like_text", {likes: post.likes, user: current_user} %-->
           </div>
-          <div class="light-color post-time">
-            <%= time_ago_in_words(@post.created_at).upcase %><%= t("ago") %>
-          </div>
+            <div class="light-color post-time">
+              <%= time_ago_in_words(@post.created_at).upcase %><%= t("ago") %>
+            </div>
           <hr>
 
 
 
           <div class="row actions" id="comment-form-post-<%= @post.id.to_s %>">
             <%= render "comment_form", {post: @post} %>
-
-            <!-- <form class="w-100" action="#">
-              <div>
-                <textarea class="form-control comment-input border-0" placeholder= "<!%= t("add_comment") %>" rows="1"></textarea>
-              </div>
-            </form> -->
           </div>
       </div>
   </div>

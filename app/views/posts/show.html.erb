@@ -17,8 +17,9 @@
         </div>
         <hr class="mb-0">
           <div class="comment-list py-2">
+            <span><strong><%= link_to @post.user.name, user_path(@post.user), class: "normal-color black_underline" %></strong></span>
             <% if @post.content.present? %>
-              <span><strong><%= link_to @post.user.name, user_path(@post.user), class: "normal-color black_underline" %></strong></span>
+
               <span><%= @post.content %></span>
             <% end %>
               <div>

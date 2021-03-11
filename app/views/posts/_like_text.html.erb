@@ -41,9 +41,9 @@
 
     <% if likes.size == 1 %>
       <% if I18n.locale == jap %>
-          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> 「いいね！」しました
+        <strong>  <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> 「いいね！」しました
       <% elsif I18n.locale == eng %>
-          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> liked this
+        <strong>  <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %> </strong> liked this
       <% end %>
     <% elsif like == likes.last %>
       <% if I18n.locale == jap %>
@@ -64,9 +64,9 @@
       <strong><%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %></strong>
     <% else %>
       <% if I18n.locale == jap %>
-          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" + "、" %>
+        <strong><%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline"%></strong>、
       <% elsif I18n.locale == eng %>
-          <%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" + ", " %>
+        <strong><%= link_to like.user.name, user_path(like.user), class: "normal-color black_underline" %></strong>,
       <% end %>
     <% end %>
   <% end %>

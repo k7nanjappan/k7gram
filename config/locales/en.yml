@@ -70,3 +70,6 @@ en:
   leave_blank: "Leave blank if you don't want to change it"
   account: "Account"
   ago: " AGO"
+  reset_message_html: "Enter your email, phone, or username and <br> we'll send you a link to get back into your<br> account."
+  trouble_login: "Trouble Logging In?"
+  login_link: "Send Login Link"

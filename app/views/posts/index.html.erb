@@ -16,7 +16,7 @@
 							<%= image_tag avatar_url(current_user), class: "post-author-icon" %>
 						</div>
 						<div class="col pl-0">
-							<%= f.text_field :content, class: "form-control border-0", placeholder: t("caption") %>
+							<%= f.text_field :content, class: "form-control border-0", style: "box-shadow: none;", placeholder: t("caption"), :required => 'required' %>
 						</div>
 					</div>
 

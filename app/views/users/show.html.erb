@@ -42,13 +42,13 @@
     <div class="row">
       <b class="email"><%= @user.email %></b>
     </div>
-    <div class="row">
+    <div class="row word-wrap-bio">
       <a><%= @user.bio %></a>
     </div>
-    <div class="row">
-      <a><%= link_to @user.website, "http://#{@user.website}", target: :_blank, class: "website" %> </a>
-
-
+    <% if @user.website %>
+    <div class="row word-wrap-bio">
+      <a ><%= link_to @user.website, "http://#{@user.website}", target: :_blank, class: "website" %> </a>
+    <% end %>
     </div>
   </div>
 </div>

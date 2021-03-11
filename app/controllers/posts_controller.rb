@@ -6,6 +6,9 @@
    # around_action :switch_locale
 
   def index
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    end
     @posts = Post.all.limit(10).includes(:photos, :user, :likes).order('created_at desc')
     @post = Post.new
   end

@@ -1,7 +1,7 @@
  class PostsController < ApplicationController
 
    #before_action :authenticate_user!
-   #before_action :find_post, only: [:show, :destroy]
+   before_action :find_post, only: [:show, :destroy]
    # before_action :set_locale
    # around_action :switch_locale
 

@@ -14,8 +14,8 @@
 <% post.comments.each do |comment| %>
   <div class="mb-2">
     <% if comment.user == current_user  %>
-      <!--%= link_to "Delete comment", comment_path(comment), method: :delete, remote: true, class: "core-sprite-en delete-comment hide-text" %-->
-      <%= link_to 'delete', { controller: "comments", action: "destroy", id: comment.id }, data: { confirm: 'Are you sure?' }, method: :delete, class: "core-sprite-en delete-comment hide-text", remote: true %>
+      <%= link_to "Delete comment", comment_path(comment), method: :delete, remote: true, class: "core-sprite-en delete-comment hide-text" %>
+      <!-- %= link_to 'delete', { controller: "comments", action: "destroy", id: comment.id }, data: { confirm: 'Are you sure?' }, method: :delete, class: "core-sprite-en delete-comment hide-text", remote: true %-->
     <% end %>
     <span><strong><%= link_to comment.user.name, user_path(comment.user), class: "normal-color black_underline" %></strong></span>
     <span class="mb-2"><%= comment.content %></span>

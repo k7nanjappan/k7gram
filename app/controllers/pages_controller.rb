@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :find_post, only: [:show, :destroy]
   
-
   def home
     if !user_signed_in?
       redirect_to new_user_session_path

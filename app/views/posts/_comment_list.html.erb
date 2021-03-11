@@ -1,3 +1,16 @@
+
+
+<% post.comments.each do |comment| %>
+  <% if comment %>
+  <div><br></div>
+  <% break %>
+  <% end %>
+<% end %>
+
+
+
+
+
 <% post.comments.each do |comment| %>
   <div class="mb-2">
     <% if comment.user == current_user  %>

@@ -17,8 +17,8 @@ nav {
   z-index: 9;
 }
 
-input[type=text]:focus, textarea:focus {
-  border: transparent;
+*:focus {
+    outline: none;
 }
 
 

@@ -595,6 +595,11 @@ footer .nav-item {
 	word-wrap: break-word;
 }
 
+.comment-list-small {
+	height: 23px;
+	overflow: auto;
+	word-wrap: break-word;
+}
 
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */

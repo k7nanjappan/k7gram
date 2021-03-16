@@ -54,11 +54,16 @@
 
 
 
+  <% @key = 0 %>
+    <% @posts.each do |post| %>
+    <% if post %>
+      <% @key = 1 %>
+    <% end %>
+  <% end %>
 
 
-
-  <div class= "profile-tab" >
     <% if @user == current_user %>
+      <div class= "profile-tab" >
   <nav>
     <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
       <a class="nav-link nav-item active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">POSTS</a>

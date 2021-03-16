@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   #get '/users/:id', to: 'users#show '
 
-  resources :users, only: [:show]
+  resources :users, only: [:index,  :show]
 
   resources :posts, only: [:index, :show, :create, :destroy] do
     resources :photos, only: [:create]

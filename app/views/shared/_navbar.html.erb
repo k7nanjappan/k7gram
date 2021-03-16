@@ -15,9 +15,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="d-flex ml-md-auto" style="width: 300px;">
-      <input class="form-control text-center common-btn" type="search" placeholder= <%= t("search") %> aria-label="Search" style="box-shadow: none; border-color: #dbdbdb; outline:0; text-align:center; height: 25px; background-color: #fafafa; color: #262626; font-size: 14px; ">
-    </form>
+
+    <%= form_tag users_path, method: :get, class: "form-inline my-2 my-lg-0 ml-md-auto", id: "users-search", remote: true do %>
+      <%= text_field_tag :term, params[:term], class: "form-control mr-sm-2 text-center common-btn", placeholder: t("search"), autocomplete: "off" %>
+      <div id="users-result"></div> <!-- This is the dropdown which shows users found for given search query. Here, results will come from index.js.erb file from AJAX -->
+    <% end %>
+
+    <!-- <form class="d-flex ml-md-auto" style="width: 300px;">
+      <input class="form-control text-center common-btn" type="search" placeholder= <!%= t("search") %> aria-label="Search" style="box-shadow: none; border-color: #dbdbdb; outline:0; text-align:center; height: 25px; background-color: #fafafa; color: #262626; font-size: 14px; ">
+    </form> -->
     <form class="d-flex ml-md-auto ">
       <ul class="navbar-nav ml-md-auto">
         <li class="nav-item">

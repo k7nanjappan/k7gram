@@ -591,7 +591,13 @@ footer .nav-item {
 
 .bookmark {
 	@extend .love;
-	background-position: -150px -353px;
+	background-position: -150px -355px;
+	display: inherit;
+}
+
+.bookmarked {
+	@extend .love;
+	background-position: -353px -273px;
 	display: inherit;
 }
 
@@ -636,4 +642,43 @@ footer .nav-item {
 	 background-position: -216px -112px;
 	 float: right;
 	 margin: 5px 0 0 10px;
+}
+
+.profile-tab {
+  margin-top: 60px;
+   .nav-tabs {
+    border: 0;
+    border-top: 1px solid #ddd;
+     .nav-item {
+      border-radius: 0;
+      border: 0;
+      border-top: 1px solid transparent;
+      margin-top: -1px;
+      padding: 10px 0;
+      background: transparent;
+      font-weight: bold;
+      color: #999;
+    }
+     .nav-item.active {
+      color: #262626;
+      border-top: 1px solid #262626;
+    }
+  }
+   .post-stat {
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    top: 0;
+    opacity: 0; // icons are hidden by default and shown only on hovering it's parent col-4
+  }
+   .col-4:hover .post-stat {
+    background-color: rgba(0,0,0,.3);
+    opacity: 1;
+  }
+   .image-preview {
+    margin-bottom: 30px;
+  }
 }

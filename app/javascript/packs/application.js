@@ -21,12 +21,14 @@
 
 
 import "bootstrap";
+
 import "../stylesheets/application";
 import Dropzone from "dropzone";
 require("@rails/ujs").start()
 //require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
 //require("packs/custom")
 //require("packs/posts.js")
 //require("dropzone").start()

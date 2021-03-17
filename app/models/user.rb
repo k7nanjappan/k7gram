@@ -10,6 +10,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: %i[twitter]
 
+  has_one_attached :avatar
+  after_commit :add_default_avatar, on: %i[create update]
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar
+    else
+      "/default_profile.png"
+    end
+  end
+
   validates :name,  presence: true,  length: {maximum: 50 }
 
   def self.from_omniauth(auth)
@@ -28,9 +39,25 @@ class User < ApplicationRecord
 
   def self.search(term)
     if term
-      where('name LIKE ?', "%#{term}%")   
+      where('name LIKE ?', "%#{term}%")
     else
       nil
+    end
+  end
+
+  private
+
+  def add_default_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'default_profile.png'
+          )
+        ),
+        filename: 'default_profile.png',
+        content_type: 'image/png'
+      )
     end
   end
 

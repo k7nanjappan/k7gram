@@ -13,7 +13,8 @@
 				<%= form_for @post, :html => {:multipart => true, :class => "dropzone upload-images p-0 border-0"}, locale: lang  do |f| %>
 					<div class="form-group row mt-2">
 						<div class="col-auto pr-0">
-							<%= image_tag avatar_url(current_user), class: "post-author-icon" %>
+							<!-- %= image_tag avatar_url(current_user), class: "post-author-icon" % -->
+							<%= image_tag(current_user.avatar_thumbnail, class: "post-author-icon") %>
 						</div>
 						<div class="col pl-0">
 							<%= f.text_field :content, class: "form-control border-0", style: "box-shadow: none;", placeholder: t("caption"), :required => 'required' %>

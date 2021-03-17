@@ -3,7 +3,8 @@
     <div class="card-header d-flex align-items-center">
 
       <%= link_to user_path(post.user), class: "black_underline" do %>
-        <%= image_tag avatar_url(post.user), class: "post-author-icon" %>
+        <!-- %= image_tag avatar_url(post.user), class: "post-author-icon" %-->
+        <%= image_tag(post.user.avatar_thumbnail, class: "post-author-icon") %>
       <% end %>
 
       <%= link_to user_path(post.user), class: "normal-color black_underline", title: post.user.name do%>

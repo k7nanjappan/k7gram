@@ -2,7 +2,9 @@
 <div class="row justify-content-md-center profile-wrapper">
   <div class="col-md-4 text-center">
     <!--%= image_tag @user.image.gsub!("_normal",""), width: '152', height: '152', class: "round-img" %-->
-      <%= image_tag avatar_url(@user), width: '152', height: '152', class: "round-img" %>
+      <!-- %= image_tag avatar_url(@user), width: '152', height: '152', class: "round-img" % -->
+      <!-- %= image_tag avatar_url(post.user), class: "post-author-icon" %-->
+      <%= image_tag @user.avatar_thumbnail, width: '152', height: '152', class: "round-img" %>
   </div>
 
   <div class="col-md-8">
@@ -61,9 +63,9 @@
     <% end %>
   <% end %>
 
-
+  <div class= "profile-tab">
     <% if @user == current_user %>
-      <div class= "profile-tab" >
+
   <nav>
     <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
       <a class="nav-link nav-item active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">POSTS</a>

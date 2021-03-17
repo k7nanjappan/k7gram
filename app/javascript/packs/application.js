@@ -80,6 +80,78 @@ $("#upload").ready(function() {
 	})
 });
 
+$("#avatar").ready(function(){
+	// disable auto discover
+	//Dropzone.autoDiscover = false;
+	// grap our upload form by its id
+	$(".upload-images").dropzone({
+	// restrict image size to a maximum 1MB
+		maxFilesize: 1,
+		// changed the passed param to one accepted by
+		// our rails app
+		paramName: "avatar[image]",
+		// show remove links on each image upload
+		addRemoveLinks: true,
+		// if the upload was successful
+		success: function(file, response){
+		// find the remove button link of the uploaded file and give it an id
+		// based of the fileID response from the server
+		$(file.previewTemplate).find('.dz-remove').attr('id', response.fileID);
+		// add the dz-success class (the green tick sign)
+		$(file.previewElement).addClass("dz-success");
+		},
+		//when the remove button is clicked
+		removedfile: function(file){
+		// grap the id of the uploaded file we set earlier
+		var id = $(file.previewTemplate).find('.dz-remove').attr('id');
+		// make a DELETE ajax request to delete the file
+		$.ajax({
+		type: 'DELETE',
+		url: '/uploads/' + id,
+		success: function(data){
+		console.log(data.message);
+		}
+		});
+		}
+	});
+});
+
+// $("#avatar").ready(function() {
+// 	$(".upload-images").dropzone( {
+// 		addRemoveLinks: true,
+// 		maxFilesize: 1,
+// 		autoProcessQueue: false,
+// 		uploadMultiple: false,
+// 		parallelUploads: 1,
+// 		maxFiles: 1,
+// 		paramName: "avatar[image]",
+// 		previewsContainer: ".dropzone-previews",
+// 		clickable: ".upload-photos-icon",
+// 		thumbnailWidth: 100,
+// 		thumbnailHeight: 100,
+//
+// 		init: function() {
+// 			var myDropzone = this;
+//
+//
+// 			this.element.querySelector("input[type=submit]").addEventListener("click", function(e) {
+// 				e.preventDefault();
+// 				e.stopPropagation();
+// 				myDropzone.processQueue();
+// 			});
+//
+// 			this.on("successmultiple", function(file, response) {
+// 				window.location.reload();
+// 			});
+//
+// 			this.on("errormultiple", function(file, response) {
+// 				toastr.error(response);
+// 			});
+// 		}
+// 	})
+// });
+
+
 $(document).ready(function(){
 $("#users-search #term").on("keyup", function() { // keyup selects the users-search and the event is called whenever user starts typing!
 	var jqxhr = $.get(

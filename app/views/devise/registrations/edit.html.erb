@@ -6,17 +6,38 @@
     </div>
 
     <div class="col-sm-9 right-col">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: user_registration_path, html: {multipart: true, method: :put }) do |f| %>
         <%= render 'shared/devisemes'%>
 
         <div class="row username-img">
           <div class="col-sm-3 text-right">
-            <%= image_tag avatar_url(@user), width: '38', height: '38', class: "round-img" %>
+            <%= image_tag @user.avatar_thumbnail, width: '38', height: '38', class: "round-img" %>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-9", style="margin-top: 9px;">
             <p><%= @user.name %></p>
           </div>
         </div>
+
+        <div class="form-group row">
+          <%= f.label "Avatar", class: "col-sm-3 col-form-label text-right font-weight-bold" %>
+          <div class="col-sm-9">
+            <div class="fallback" id="avatar" >
+              <%= f.file_field :avatar, type: :file %>
+              <!--%= file_field_tag "images[]", type: :file, multiple: true %> <!-- CHECK %= EDIT -->
+            </div>
+            <div class="dz-message m-0"></div>
+              <div class="dropzone-previews mb-3">
+                <div class="upload-photos-icon">
+                  <i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #dddfe2"></i>
+                </div>
+              </div>
+
+
+
+          </div>
+
+        </div>
+
 
         <div class="form-group row">
           <%= f.label t("name"), class: "col-sm-3 col-form-label text-right font-weight-bold" %>

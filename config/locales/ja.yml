@@ -44,6 +44,9 @@ ja:
   reset_message_html: "メールアドレス、電話番号またはユーザーネームを<br>入力してください。アカウントにアクセスするため<br>のリンクをお送りします。"
   trouble_login: "ログインできない場合"
   login_link: "ログインリンクを送信"
+  profile_picture: "プロフィール写真"
+  upload: "新しい写真をアップロードする"
+  upload_new: "プロフィール写真をアップロードする"
 
 
   datetime:

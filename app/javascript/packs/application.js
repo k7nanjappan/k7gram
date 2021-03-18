@@ -38,6 +38,32 @@ window.toastr = toastr
 //global.toastr = require("toastr")
 
 
+$(function() {
+  $('#pictureInput').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    // here's the file size
+    console.log(image.size);
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+			img.height = 100
+			img.width = 100
+			// img = img.roundImage();
+		// $('#target').css({'left':'auto','right':'30px'});
+      $('#target').html(img)
+			// $('#target').roundImage();
+
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});
+
+
+
 
 
 // Dropzone code
@@ -80,41 +106,7 @@ $("#upload").ready(function() {
 	})
 });
 
-$("#avatar").ready(function(){
-	// disable auto discover
-	//Dropzone.autoDiscover = false;
-	// grap our upload form by its id
-	$(".upload-images").dropzone({
-	// restrict image size to a maximum 1MB
-		maxFilesize: 1,
-		// changed the passed param to one accepted by
-		// our rails app
-		paramName: "avatar[image]",
-		// show remove links on each image upload
-		addRemoveLinks: true,
-		// if the upload was successful
-		success: function(file, response){
-		// find the remove button link of the uploaded file and give it an id
-		// based of the fileID response from the server
-		$(file.previewTemplate).find('.dz-remove').attr('id', response.fileID);
-		// add the dz-success class (the green tick sign)
-		$(file.previewElement).addClass("dz-success");
-		},
-		//when the remove button is clicked
-		removedfile: function(file){
-		// grap the id of the uploaded file we set earlier
-		var id = $(file.previewTemplate).find('.dz-remove').attr('id');
-		// make a DELETE ajax request to delete the file
-		$.ajax({
-		type: 'DELETE',
-		url: '/uploads/' + id,
-		success: function(data){
-		console.log(data.message);
-		}
-		});
-		}
-	});
-});
+
 
 // $("#avatar").ready(function() {
 // 	$(".upload-images").dropzone( {

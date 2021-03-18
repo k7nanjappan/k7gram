@@ -26,6 +26,16 @@ input, input:focus {
         -webkit-box-shadow: none;
 }
 
+.image-upload > input
+{
+   display: none;
+}
+.image-upload > label{
+  cursor:pointer;
+	background-color: rgba(0,0,0,.3);
+	opacity: 1;
+}
+
 
 
 .black_underline:hover{
@@ -210,6 +220,18 @@ input, input:focus {
   background-position: -176px 0;
   height: 35px;
   width: 176px;
+}
+
+// .upload-button {
+//   background-position: -220px 0;
+//   height: 35px;
+//   width: 250px;
+// }
+
+.upload-button:hover {
+  cursor: pointer;
+	background-color: #dbdbdb;
+
 }
 
 .hide-text {

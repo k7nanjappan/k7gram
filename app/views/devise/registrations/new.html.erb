@@ -38,6 +38,23 @@
               <!% end %>
               </div> -->
 
+              <% eng = :en %>
+              <% jap = :ja %>
+              <% if I18n.locale == jap %>
+                <div id="target", style="margin-left: 80px; border-radius: 50%; overflow: hidden; width: 100px;">
+              <% elsif I18n.locale == eng %>
+                <div id="target", style="margin-left: 80px; border-radius: 50%; overflow: hidden; width: 100px;">
+              <% end %>
+
+              </div>
+              <br>
+              <label class="btn btn-default upload-button" style="border-color: #dbdbdb; margin-bottom: 15px;">
+                <!--%= image_tag @user.avatar_thumbnail, width: '38', height: '38', class: "round-img" % --> <div style="color: #6d757d; font-size: 12px !important;"> <%= t("upload_new") %> </div>
+                <span style="display:none;">
+                  <%= f.file_field :avatar, type: :file, id: "pictureInput"%>
+                </span>
+              </label>
+              <br>
              <div class="form-group">
              <%= f.text_field :name, autofocus: true, placeholder: t("full_name"), class: "form-control font-mid", style: "box-shadow: none;" %>
               </div>

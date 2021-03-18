@@ -73,3 +73,6 @@ en:
   reset_message_html: "Enter your email, phone, or username and <br> we'll send you a link to get back into your<br> account."
   trouble_login: "Trouble Logging In?"
   login_link: "Send Login Link"
+  profile_picture: "Profile Picture"
+  upload: "Upload new image"
+  upload_new: "Upload Profile Picture"

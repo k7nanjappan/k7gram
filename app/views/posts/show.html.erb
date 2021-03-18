@@ -8,7 +8,7 @@
       <div class="col-lg-4 col-md-5 mt-sm-4 mt-md-0">
         <div class="row px-3">
           <%= link_to user_path(@post.user), class: "black_underline" do %>
-            <%= image_tag avatar_url(@post.user), class: "post-author-icon" %>
+            <%= image_tag @post.user.avatar_thumbnail, class: "post-author-icon" %>
           <% end %>
           <%= link_to user_path(@post.user), class: "normal-color black_underline d-flex align-self-center",
           title: @post.user.name do%>

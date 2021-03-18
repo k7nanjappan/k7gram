@@ -28,6 +28,8 @@
 
       <a href="#comment_box"><%= link_to "Comment", post_path(post), class: "core-sprite-en comment hide-text" %> </a>
 
+      <!-- <button class="core-sprite-en comment hide-text" onclick="commentFocus()">Focus Input</button> -->
+
       <div id="bookmark-icon-post-<%= post.id.to_s %>" class="ml-auto">
         <%= render "bookmark_icon", {is_bookmarked: post.is_bookmarked(current_user), post: post} %>
       </div>

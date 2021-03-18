@@ -90,7 +90,9 @@
     </div>
     <div class="tab-pane fade" id="nav-saved" role="tabpanel" aria-labelledby="nav-saved-tab" style="margin-top: 10px;">
       <div class="row">
-        <%= render "post",  {posts: @saved} if @user == current_user %>
+        <% if @user == current_user %>
+        <%= render "post",  {posts: @saved} %>
+        <% end %>
       </div>
     </div>
 

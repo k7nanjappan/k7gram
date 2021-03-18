@@ -106,7 +106,9 @@ $("#upload").ready(function() {
 	})
 });
 
-
+function commentFocus() {
+     document.getElementById("#comment_field_<%= @post.id %>").focus();
+}
 
 // $("#avatar").ready(function() {
 // 	$(".upload-images").dropzone( {

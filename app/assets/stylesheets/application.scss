@@ -724,6 +724,10 @@ footer .nav-item {
   }
 }
 
+.drop-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 
 .search-result-item {

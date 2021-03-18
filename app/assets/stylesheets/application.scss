@@ -686,6 +686,25 @@ footer .nav-item {
       border-top: 1px solid #262626;
     }
   }
+
+	.nav-tabs-unsaved {
+	 border: 0;
+	 //border-top: 1px solid #ddd;
+		.nav-item {
+		 border-radius: 0;
+		 border: 0;
+		 border-top: 1px solid transparent;
+		 margin-top: -1px;
+		 padding: 10px 0;
+		 background: transparent;
+		 font-weight: bold;
+		 color: #999;
+	 }
+		.nav-item.active {
+		 color: #262626;
+		 border-top: 1px solid #262626;
+	 }
+ }
    .post-stat {
     position: absolute;
     color: white;
@@ -704,6 +723,8 @@ footer .nav-item {
     margin-bottom: 30px;
   }
 }
+
+
 
 .search-result-item {
 	padding: 15px;

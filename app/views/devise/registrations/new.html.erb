@@ -51,7 +51,7 @@
               <label class="btn btn-default upload-button" style="border-color: #dbdbdb; margin-bottom: 15px;">
                 <!--%= image_tag @user.avatar_thumbnail, width: '38', height: '38', class: "round-img" % --> <div style="color: #6d757d; font-size: 12px !important;"> <%= t("upload_new") %> </div>
                 <span style="display:none;">
-                  <%= f.file_field :avatar, type: :file, id: "pictureInput"%>
+                  <%= f.file_field :avatar, type: :file, id: "pictureInput", direct_upload: true%>
                 </span>
               </label>
               <br>

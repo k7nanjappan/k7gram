@@ -10,8 +10,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,:omniauthable, omniauth_providers: %i[twitter]
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
+
   after_commit :add_default_avatar, on: %i[create update]
+
 
   def avatar_thumbnail
     if avatar.attached?

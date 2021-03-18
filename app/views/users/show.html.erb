@@ -4,7 +4,8 @@
     <!--%= image_tag @user.image.gsub!("_normal",""), width: '152', height: '152', class: "round-img" %-->
       <!-- %= image_tag avatar_url(@user), width: '152', height: '152', class: "round-img" % -->
       <!-- %= image_tag avatar_url(post.user), class: "post-author-icon" %-->
-      <%= image_tag @user.avatar_thumbnail, width: '152', height: '152', class: "round-img" %>
+      <!--%= image_tag @user.avatar_thumbnail, width: '152', height: '152', class: "round-img" %-->
+      <%= image_tag url_for(@user.avatar), width: '152', height: '152', class: "round-img" %>
   </div>
 
   <div class="col-md-8">
@@ -81,7 +82,7 @@
       <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab" style="margin-top: 10px;">
     <% else %>
       <br>
-      
+
       <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab" style="margin-top: 40px;">
     <% end %>
         <div class="row">

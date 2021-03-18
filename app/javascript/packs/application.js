@@ -38,6 +38,7 @@ window.toastr = toastr
 //global.toastr = require("toastr")
 
 
+
 $(function() {
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;

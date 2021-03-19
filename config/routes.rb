@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     resources :avatar, only: [:create]
   end
 
+  resources :friendships, only: [:create, :destroy]
+  
   resources :posts, only: [:index, :show, :create, :destroy] do
     resources :photos, only: [:create]
     resources :likes, only: [:create, :destroy], shallow: true

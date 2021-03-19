@@ -5,7 +5,7 @@
       <!-- %= image_tag avatar_url(@user), width: '152', height: '152', class: "round-img" % -->
       <!-- %= image_tag avatar_url(post.user), class: "post-author-icon" %-->
       <!--%= image_tag @user.avatar_thumbnail, width: '152', height: '152', class: "round-img" %-->
-      <%= image_tag url_for(@user.avatar), width: '152', height: '152', class: "round-img" %>
+      <%= image_tag @user.avatar, width: '152', height: '152', class: "round-img" %>
   </div>
 
   <div class="col-md-8">
@@ -16,6 +16,16 @@
 
         <%= link_to t("edit_profile"), edit_user_registration_path, {class: "btn btn-outline-dark common-btn edit-profile-btn", style: "font-weight: bold; margin: 5px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; border-color: #dbdbdb; font-size: 14px;"}%>
         <button type="button" class="core-sprite-en setting" data-toggle="modal" data-target="#exampleModal"></button>
+
+        <% else %>
+
+
+          <% if current_user.following?(@user) %>
+            <%= button_to "Un-Follow #{@user.name}", friendship_path(user_id: @user.id), method: :delete %>
+          <% else %>
+            <%= button_to "Follow #{@user.name}", friendships_path(user_id: @user.id)%>
+          <% end %>
+
       <% end %>
 
 

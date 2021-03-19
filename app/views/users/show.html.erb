@@ -21,11 +21,11 @@
 
 
           <% if current_user.following?(@user) %>
-            <%= button_to "Unfollow", friendship_path(user_id: @user.id), method: :delete, class: "btn common-btn unfollow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px; height: 28px; line-height: 24px; padding: 2px 24px; border-color: #dbdbdb; font-size: 14px;" %>
+            <%= button_to t("unfollow"), friendship_path(user_id: @user.id), method: :delete, class: "btn common-btn unfollow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px; height: 28px; line-height: 24px; padding: 2px 24px; border-color: #dbdbdb; font-size: 14px;" %>
             <% elsif @user.following?(current_user) and !current_user.following?(@user) %>
-              <%= button_to "Follow Back", friendships_path(user_id: @user.id), class: "btn btn-primary follow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; font-size: 14px; color: white;"%>
+              <%= button_to t("follow_back"), friendships_path(user_id: @user.id), class: "btn btn-primary follow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; font-size: 14px; color: white;"%>
           <% else %>
-            <%= button_to "Follow", friendships_path(user_id: @user.id), class: "btn btn-primary follow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; font-size: 14px; color: white;"%>
+            <%= button_to t("follow"), friendships_path(user_id: @user.id), class: "btn btn-primary follow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; font-size: 14px; color: white;"%>
           <% end %>
 
       <% end %>
@@ -58,7 +58,7 @@
     <% if current_user.following?(@user) or @user==current_user %>
 
     <div class="row">
-      <div class= "col-1 d-flex justify-content-center">
+      <div class= "col-2 d-flex justify-content-center">
         <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#post"><h5><%= @user.posts.size %></h5></button></div>
       </div>
       <div class= "col-2 d-flex justify-content-center">
@@ -68,7 +68,7 @@
           <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers"><h5><%= @user.followers.size %></h5></button></div>
         <% end %>
       </div>
-      <div class= "col-1 d-flex justify-content-center">
+      <div class= "col-2 d-flex justify-content-center">
           <% if @user.following.size > 0 %>
             <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following"><h5><%= @user.following.size %></h5></button></div>
           <% else %>
@@ -77,22 +77,22 @@
       </div>
     </div>
     <div class="row" style="margin-top: -10px;">
-      <div class= "col-1 d-flex justify-content-center">
-        <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#post">Posts</button></div>
+      <div class= "col-2 d-flex justify-content-center">
+        <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#post"><%= t("posts") %></button></div>
 
       </div>
       <div class= "col-2 d-flex justify-content-center">
         <% if @user.followers.size > 0 %>
-          <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers">Followers</button></div>
+          <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers"><%= t("followers") %></button></div>
         <% else %>
-          <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers">Followers</button></div>
+          <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers"><%= t("followers") %></button></div>
         <% end %>
       </div>
-      <div class= "col-1 d-flex justify-content-center">
+      <div class= "col-2 d-flex justify-content-center">
           <% if @user.following.size > 0 %>
-            <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following">Following</button></div>
+            <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following"><%= t("following") %></button></div>
           <% else %>
-            <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following">Following</button></div>
+            <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following"><%= t("following") %></button></div>
           <% end %>
 
       </div>
@@ -181,9 +181,10 @@
 
 
   <div class= "profile-tab">
+
     <% if @user == current_user  %>
 
-  <nav">
+  <nav>
 
 
       <% if @user == current_user and @key_saved == 1 and @key==1 %>

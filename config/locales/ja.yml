@@ -47,6 +47,12 @@ ja:
   profile_picture: "プロフィール写真"
   upload: "新しい写真をアップロードする"
   upload_new: "プロフィール写真をアップロードする"
+  posts: "投稿"
+  followers: "フォロワー"
+  following: "フォロー中"
+  follow: "フォローする"
+  follow_back: "フォローバック"
+  unfollow: "フォローをやめる"
 
 
   datetime:

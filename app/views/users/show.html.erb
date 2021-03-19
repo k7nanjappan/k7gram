@@ -15,15 +15,17 @@
       <!-- button type="button" class="btn btn-outline-dark common-btn edit-profile-btn" style="font-weight: bold; margin: 5px 0 0 15px;height: 28px;line-height: 24px; padding: 0 24px; border-color: #dbdbdb; font-size: 14px;" -->
 
         <%= link_to t("edit_profile"), edit_user_registration_path, {class: "btn btn-outline-dark common-btn edit-profile-btn", style: "font-weight: bold; margin: 5px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; border-color: #dbdbdb; font-size: 14px;"}%>
-        <button type="button" class="core-sprite-en setting" data-toggle="modal" data-target="#exampleModal"></button>
+        <button type="button" class="core-sprite-en setting drop-button" data-toggle="modal" data-target="#exampleModal"></button>
 
         <% else %>
 
 
           <% if current_user.following?(@user) %>
-            <%= button_to "Un-Follow #{@user.name}", friendship_path(user_id: @user.id), method: :delete %>
+            <%= button_to "Unfollow", friendship_path(user_id: @user.id), method: :delete, class: "btn common-btn unfollow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px; height: 28px; line-height: 24px; padding: 2px 24px; border-color: #dbdbdb; font-size: 14px;" %>
+            <% elsif @user.following?(current_user) and !current_user.following?(@user) %>
+              <%= button_to "Follow Back", friendships_path(user_id: @user.id), class: "btn btn-primary follow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; font-size: 14px; color: white;"%>
           <% else %>
-            <%= button_to "Follow #{@user.name}", friendships_path(user_id: @user.id)%>
+            <%= button_to "Follow", friendships_path(user_id: @user.id), class: "btn btn-primary follow-profile-btn", style: "font-weight: bold; margin: 8px 0 0 15px;height: 28px;line-height: 24px; padding: 2px 24px; font-size: 14px; color: white;"%>
           <% end %>
 
       <% end %>
@@ -36,11 +38,11 @@
             <div class="modal-content w-50" style="border-radius: 10px;">
 
 
-              <div class="list-group text-center" style="border-radius: 15px">
-                <a href="#" class="list-group-item item-group-item-action setting-modal"><%= t("change_password") %></a>
-                <%= link_to t("logout"), destroy_user_session_path, method: :delete, class: "list-group-item item-group-item-action setting-modal" %>
+              <div class="list-group text-center" style="border-radius: 10px">
+                <a href="#" class="list-group-item item-group-item-action setting-modal upload-button"><%= t("change_password") %></a>
+                <%= link_to t("logout"), destroy_user_session_path, method: :delete, class: "list-group-item item-group-item-action setting-modal upload-button" %>
                 <!--#%= link_to t("logout"), destroy_user_session_path, method: :delete, class: "list-group-item item-group-item-action" %-->
-                <a href="#" class="list-group-item item-group-item-action setting-modal" data-dismiss="modal"><%= t("cancel") %></a>
+                <a href="#" class="list-group-item item-group-item-action setting-modal upload-button" data-dismiss="modal"><%= t("cancel") %></a>
 
               </div>
             </div>
@@ -52,9 +54,103 @@
 
 
     </div>
+
+    <% if current_user.following?(@user) or @user==current_user %>
+
     <div class="row">
+      <div class= "col-1 d-flex justify-content-center">
+        <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#post"><h5><%= @user.posts.size %></h5></button></div>
+      </div>
+      <div class= "col-2 d-flex justify-content-center">
+        <% if @user.followers.size > 0 %>
+          <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers"><h5><%= @user.followers.size %></h5></button></div>
+        <% else %>
+          <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers"><h5><%= @user.followers.size %></h5></button></div>
+        <% end %>
+      </div>
+      <div class= "col-1 d-flex justify-content-center">
+          <% if @user.following.size > 0 %>
+            <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following"><h5><%= @user.following.size %></h5></button></div>
+          <% else %>
+            <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following"><h5><%= @user.following.size %></h5></button></div>
+          <% end %>
+      </div>
+    </div>
+    <div class="row" style="margin-top: -10px;">
+      <div class= "col-1 d-flex justify-content-center">
+        <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#post">Posts</button></div>
+
+      </div>
+      <div class= "col-2 d-flex justify-content-center">
+        <% if @user.followers.size > 0 %>
+          <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers">Followers</button></div>
+        <% else %>
+          <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#followers">Followers</button></div>
+        <% end %>
+      </div>
+      <div class= "col-1 d-flex justify-content-center">
+          <% if @user.following.size > 0 %>
+            <div style="font-size: 12px;"><button type="button" class="drop-button follow-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following">Following</button></div>
+          <% else %>
+            <div style="font-size: 12px;"><button type="button" class="drop-button post-button" style="border: 0px; background-color: #fafafa; box-shadow:none;" data-toggle="modal" data-target="#following">Following</button></div>
+          <% end %>
+
+      </div>
+    </div>
+
+    <% end %>
+
+    <% if @user.followers.size > 0 %>
+    <div class="modal fade" id="followers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered justify-content-center" role="document" >
+        <div class="modal-content w-50" style="border-radius: 10px;">
+          <div class="list-group text-center" style="border-radius: 10px">
+            <% @user.followers.each do |follow| %>
+            <%= link_to user_path(follow), class: "black_underline list-group-item item-group-item-action setting-modal upload-button", style: "color: black;" do %>
+              <%= image_tag(follow.avatar_thumbnail, class: "follow-author-icon") %> <%= follow.name %>
+            <% end %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <% if @user.following.size > 0 %>
+    <div class="modal fade" id="following" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered justify-content-center" role="document" >
+        <div class="modal-content w-50" style="border-radius: 10px;">
+          <div class="list-group text-center" style="border-radius: 10px">
+            <% @user.following.each do |follow| %>
+            <%= link_to user_path(follow), class: "black_underline list-group-item item-group-item-action setting-modal upload-button", style: "color: black;" do %>
+              <%= image_tag(follow.avatar_thumbnail, class: "follow-author-icon") %> <%= follow.name %>
+            <% end %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+
+
+
+
+
+
+
+
+    <div class="row" style="margin-top:13px;">
       <b class="email"><%= @user.email %></b>
     </div>
+
+
+
+    <% if current_user.following?(@user) or @user==current_user %>
+
+
     <div class="row word-wrap-bio">
       <a><%= @user.bio %></a>
     </div>
@@ -127,6 +223,7 @@
     </div>
 
   </div>
-
+<% end %>
 </div>
+
 </div>

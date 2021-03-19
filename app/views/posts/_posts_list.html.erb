@@ -1,4 +1,7 @@
 <% @posts.each do |post| %>
+
+<% if current_user.following?(post.user) or post.user == current_user%>
+
   <div class="card mt-3 post">
     <div class="card-header d-flex align-items-center">
 
@@ -66,5 +69,7 @@
 </div>
 
 <br><br>
+
+<% end %>
 
 <% end %>

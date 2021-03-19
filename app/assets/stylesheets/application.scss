@@ -426,6 +426,41 @@ footer .nav-item {
   color: white;
 }
 
+.follow-profile-btn {
+  margin: 5px 0 0 15px;
+  font-weight: bold;
+	height: 28px;
+	line-height: 24px;
+	padding: 2px 24px;
+	border-color: #dbdbdb;
+	font-size: 14px;
+	color: white;
+}
+
+.follow-profile-btn:hover {
+  color: white;
+}
+
+.unfollow-profile-btn {
+  margin: 5px 0 0 15px;
+  font-weight: bold;
+	height: 28px;
+	line-height: 24px;
+	padding: 2px 24px;
+	border-color: #dbdbdb;
+	font-size: 14px;
+	color: white;
+}
+
+.unfollow-profile-btn:hover {
+  background-color: #dbdbdb;
+}
+
+.cancel-btn:hover {
+	background-color: #dbdbdb !important;
+	color: red !important;
+}
+
 .setting {
   margin: 7px 0 0 10px;
   background-color: transparent;
@@ -494,6 +529,24 @@ footer .nav-item {
 	border-radius: 50%;
 	margin-right: 10px;
 }
+
+.follow-author-icon {
+	height: 40px;
+	width :40px;
+	border-radius: 50%;
+	margin-right: 10px;
+
+}
+
+.follow-button:hover {
+	color: black !important;
+}
+
+.post-button:hover {
+	color: black !important;
+	cursor: default !important;
+}
+
 
 // customize upload photos form
 .upload-photos-icon:hover {

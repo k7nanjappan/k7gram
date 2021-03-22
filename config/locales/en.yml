@@ -30,7 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello"
   email: "Email"
   create: "New Post"
   password: "Password"
@@ -84,3 +84,8 @@ en:
   unfollow: "Unfollow"
   cancel_account: "Delete account"
   are_you_sure: "Are you sure you want to delete your account?"
+  reset_link: "Password Reset Link"
+  line2: "You have requested a link to change your password. You can do this through the link below."
+  line3: "If you didn't request this, please ignore this email."
+  line4: "Your password won't change until you access the link above and create a new one."
+  comma: ", "

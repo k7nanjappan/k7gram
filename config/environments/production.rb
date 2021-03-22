@@ -87,6 +87,7 @@ config.action_mailer.smtp_settings = {
   authentication: :plain,
   enable_starttls_auto: true
 }
+config.action_mailer.default_url_options = { :host => "localek7.herokuapp.com" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

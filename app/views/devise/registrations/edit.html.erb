@@ -3,10 +3,11 @@
        <a href="#" class="list-group-item list-group-item-action"><%= t("edit_profile") %></a>
          <%= link_to t("logout"), destroy_user_session_path, method: :delete,
          class: "list-group-item item-group-item-action" %>
+          <%= button_to t("cancel_account"), registration_path(resource_name), class: "cancel-btn-left list-group-item item-group-item-action", style: "background-color: white; color: #DC143C;", data: { confirm: t("are_you_sure") }, method: :delete %>
     </div>
 
     <div class="col-sm-9 right-col">
-      <%= form_for(resource, as: resource_name, url: user_registration_path, html: {multipart: true, method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render 'shared/devisemes'%>
 
         <div class="row username-img">
@@ -122,10 +123,11 @@
           <div class="col-sm-3"></div>
             <div class="col-sm-9">
               <%= f.submit t("submit"), class: "btn btn-primary" %>
-              <%= button_to "Cancel my account", registration_path(resource_name), class: "btn cancel-btn", style: "background-color: white; color: #DC143C; border-color: #dbdbdb;", data: { confirm: "Are you sure?" }, method: :delete %>
+              <% end %>
+              <!--%= button_to t("cancel_account"), registration_path(resource_name), class: "btn cancel-btn", style: "background-color: white; color: #DC143C; border-color: #dbdbdb; margin-top: 15px;", data: { confirm: t("are_you_sure") }, method: :delete %-->
           </div>
         </div>
-      <% end %>
+
 
     </div>
 </div>

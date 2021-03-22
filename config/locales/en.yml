@@ -82,3 +82,5 @@ en:
   follow: "Follow"
   follow_back: "Follow back"
   unfollow: "Unfollow"
+  cancel_account: "Delete account"
+  are_you_sure: "Are you sure you want to delete your account?"

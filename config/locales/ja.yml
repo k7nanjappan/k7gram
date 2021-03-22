@@ -53,6 +53,8 @@ ja:
   follow: "フォローする"
   follow_back: "フォローバック"
   unfollow: "フォローをやめる"
+  cancel_account: "アカウントを削除する"
+  are_you_sure: "アカウントを削除してもよろしいですか？"
 
 
   datetime:

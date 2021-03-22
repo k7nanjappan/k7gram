@@ -457,8 +457,12 @@ footer .nav-item {
 }
 
 .cancel-btn:hover {
-	background-color: #dbdbdb !important;
+	background-color: #fafafa !important;
 	color: red !important;
+}
+
+.cancel-btn-left:hover {
+	text-decoration: underline;
 }
 
 .setting {

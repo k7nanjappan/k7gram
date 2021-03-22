@@ -89,3 +89,4 @@ en:
   line3: "If you didn't request this, please ignore this email."
   line4: "Your password won't change until you access the link above and create a new one."
   comma: ", "
+  new_password: "New Password"

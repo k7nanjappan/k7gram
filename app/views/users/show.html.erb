@@ -104,7 +104,7 @@
     <div class="modal fade" id="followers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered justify-content-center" role="document" >
         <div class="modal-content w-50" style="border-radius: 10px;">
-          <div class="list-group text-center" style="border-radius: 10px">
+          <div class="list-group" style="border-radius: 10px">
             <% @user.followers.each do |follow| %>
             <%= link_to user_path(follow), class: "black_underline list-group-item item-group-item-action setting-modal upload-button", style: "color: black;" do %>
               <%= image_tag(follow.avatar_thumbnail, class: "follow-author-icon") %> <%= follow.name %>
@@ -121,7 +121,7 @@
     <div class="modal fade" id="following" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
       <div class="modal-dialog modal-dialog-centered justify-content-center" role="document" >
         <div class="modal-content w-50" style="border-radius: 10px;">
-          <div class="list-group text-center" style="border-radius: 10px">
+          <div class="list-group" style="border-radius: 10px">
             <% @user.following.each do |follow| %>
             <%= link_to user_path(follow), class: "black_underline list-group-item item-group-item-action setting-modal upload-button", style: "color: black;" do %>
               <%= image_tag(follow.avatar_thumbnail, class: "follow-author-icon") %> <%= follow.name %>

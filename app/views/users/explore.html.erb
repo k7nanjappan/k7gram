@@ -1,0 +1,33 @@
+
+
+<div class="d-flex flex-column align-items-center mt-3">
+
+
+	<div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+		<div class="card">
+			<div class="card-header">
+				<strong><%= image_tag("explore.png", class: "explore-head-icon") %><%= t("explore") %></strong>
+			</div>
+			<div class="card-body">
+        <% @user.each do |user| %>
+        <% if current_user.following?(user) or user==current_user%>
+            <% next %>
+        <% end %>
+        <br>
+        <%= link_to user_path(user), class: "black_underline explore-group-item", style: "color: black;" do %>
+          <%= image_tag(user.avatar_thumbnail, class: "follow-author-icon") %> <%= user.name %> <b style="float:right;"><%= user.email %></b>
+
+          <br><br>
+        <% end %>
+
+        <% end %>
+			</div>
+		</div>
+
+		<br>
+
+
+
+
+</div>
+</div>

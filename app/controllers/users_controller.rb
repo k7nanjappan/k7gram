@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @saved = Post.joins(:bookmarks).where(bookmarks: {user_id: current_user.id}).includes(:photos, :likes, :comments) if @user == current_user
   end
 
+  def explore
+      @user = User.all
+  end
+
  #  def activities_params
  #     params.permit(:file)
  # end

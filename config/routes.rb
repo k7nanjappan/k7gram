@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   #get 'posts/index'
+  get 'users/explore'
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :friendships, only: [:create, :destroy]
-  
+
   resources :posts, only: [:index, :show, :create, :destroy] do
     resources :photos, only: [:create]
     resources :likes, only: [:create, :destroy], shallow: true

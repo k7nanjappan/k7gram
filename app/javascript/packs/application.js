@@ -37,7 +37,7 @@ import toastr from 'toastr/toastr';
 window.toastr = toastr
 //global.toastr = require("toastr")
 
-
+ const images = require.context('.../images', true)
 
 $(function() {
   $('#pictureInput').on('change', function(event) {

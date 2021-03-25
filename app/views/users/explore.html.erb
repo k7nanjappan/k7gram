@@ -10,12 +10,24 @@
 			</div>
 			<div class="card-body">
         <% @user.each do |user| %>
-        <% if current_user.following?(user) or user==current_user%>
+        <% if user==current_user%>
             <% next %>
         <% end %>
         <br>
-        <%= link_to user_path(user), class: "black_underline explore-group-item", style: "color: black;" do %>
-          <%= image_tag(user.avatar_thumbnail, class: "follow-author-icon") %> <%= user.name %> <b style="float:right; margin-top: 7px;"><%= user.email %></b>
+        <%= link_to user_path(user), class: "explore-group-item", style: "color: black;" do %>
+          <%= image_tag(user.avatar_thumbnail, class: "follow-author-icon") %>
+					<span style="position: relative; top:-6px; "><%=user.name%></span>
+					<span style="float:right; margin-top: 7px;"><%= user.email %></span>
+					<br>
+					<% if current_user.following?(user) %>
+            <a style="color: gray; font-size:12px; margin-left:57px; position: relative; top:-24px;"><%= t("following")%></a>
+            <% elsif user.following?(current_user) and !current_user.following?(user) %>
+            <a style="color: gray; font-size:12px; margin-left:57px; position: relative; top:-24px;"><%= t("follows_you")%></a>
+          <% else %>
+            <a style="color: gray; font-size:12px; margin-left:57px; position: relative; top:-24px;"><%= t("not_following")%></a>
+          <% end %>
+
+
 
           <br><br>
         <% end %>

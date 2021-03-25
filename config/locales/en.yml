@@ -90,3 +90,5 @@ en:
   line4: "Your password won't change until you access the link above and create a new one."
   comma: ", "
   new_password: "New Password"
+  follows_you: "Follows You"
+  not_following: "Not Following"

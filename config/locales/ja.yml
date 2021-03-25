@@ -61,6 +61,8 @@ ja:
   line4: "上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。"
   comma: "、"
   new_password: "新しいパスワード"
+  follows_you: "あなたにフォローしってます"
+  not_following: "フォローしていない"
 
 
   datetime:

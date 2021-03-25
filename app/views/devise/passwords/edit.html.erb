@@ -21,9 +21,9 @@
         <% eng = :en %>
         <% jap = :ja %>
         <% if I18n.locale == jap %>
-            <h3 class="core-sprite-ja brand-name-img"></h3>
+            <%= link_to "Icon", root_path, class:"core-sprite-ja brand-name-img hide-text" %>
         <% elsif I18n.locale == eng %>
-            <h3 class="core-sprite-en brand-name-img"></h3>
+            <%= link_to "Icon", root_path, class:"core-sprite-en brand-name-img hide-text" %>
         <% end %>
 
         <h4><%= t("change_password") %></h4>

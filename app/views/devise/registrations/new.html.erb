@@ -16,9 +16,9 @@
           <% eng = :en %>
           <% jap = :ja %>
           <% if I18n.locale == jap %>
-              <h2 class="core-sprite-ja brand-name-img"></h2>
+              <%= link_to "Icon", root_path, class:"core-sprite-ja brand-name-img hide-text" %>
           <% elsif I18n.locale == eng %>
-              <h2 class="core-sprite-en brand-name-img"></h2>
+              <%= link_to "Icon", root_path, class:"core-sprite-en brand-name-img hide-text" %>
           <% end %>
 
           <!-- <h2 class="core-sprite brand-name-img"></h2> -->

@@ -70,20 +70,13 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :user_name => '76256d6f675434',
-  #   :password => '55835afda01673',
-  #   :address => 'smtp.mailtrap.io',
-  #   :domain => 'smtp.mailtrap.io',
-  #   :port => '2525',
-  #   :authentication => :cram_md5
-  # }
+
 
 config.action_mailer.smtp_settings = {
   port: 587,
   address: 'smtp.gmail.com',
-  user_name: 'k7gram.donotreply@gmail.com',
-  password: 'Gmailwelcome@123#',
+  user_name: '',
+  password: '',
   authentication: :plain,
   enable_starttls_auto: true
 }

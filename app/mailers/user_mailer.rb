@@ -18,7 +18,12 @@ class UserMailer < Devise::Mailer
              mail
            end
 
-
+           def default_url_options
+             {
+               :locale => I18n.locale.to_s,
+               :host => "localek7.herokuapp.com"          
+             }
+           end
 
 
   private

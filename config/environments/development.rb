@@ -60,6 +60,7 @@ config.action_mailer.smtp_settings = {
   enable_starttls_auto: true
 }
 
+# config.action_mailer.default_url_options = { :host => "http://127.0.0.1:3000/#{I18n.locale}/" }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

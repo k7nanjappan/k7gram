@@ -16,4 +16,4 @@ The website was designed, developed, and hosted using:
 
 * Heroku
 
-website available at [k7gram](k7gram.herokuapp.com)
+website available at [k7gram](https://www.k7gram.herokuapp.com)

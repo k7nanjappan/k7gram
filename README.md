@@ -1,6 +1,6 @@
 # k7gram
 
-Project to create a bilingual(English and Japanese) image sharing website on Ruby on Rails with social features, inspired by instagram.
+Bilingual(English and Japanese) image sharing website, developed on Ruby on Rails, with social features, inspired by instagram.
 
 The website was designed, developed, and hosted using:
 

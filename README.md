@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* k7gram
 
-Things you may want to cover:
+Project to create a bilingual(English and Japanese) image sharing website on Ruby on Rails with social features, inspired by instagram.
 
-* Ruby version
+The website was designed, developed, and hosted using:
 
-* System dependencies
+* Adobe XD
 
-* Configuration
+* Adobe Photoshop
 
-* Database creation
+* Ruby on Rails 6
 
-* Database initialization
+* PostgreSQL
 
-* How to run the test suite
+* Heroku
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+website available at [k7gram.herokuapp.com]
